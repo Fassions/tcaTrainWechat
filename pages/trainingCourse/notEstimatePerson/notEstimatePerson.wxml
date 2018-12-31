@@ -1,0 +1,22 @@
+<!--pages/trainingCourse/notEstimatePerson/notEstimatePerson.wxml-->
+<view class='page_view'>
+    <view style='height: 1rpx;'></view>
+    <navigator class='wrui-view_display_flex_row person_type_view' url='../signInPerson/signInPerson' hover-class='hover_class' style='padding: 30rpx;'>
+    <image class='type_head_image' src='../../../images/tc/y_w.png' style='width: 60rpx;height: 60rpx;padding-right: 10rpx;'></image>
+    <view class='type_left_view'>培训班整体满意度</view>
+    <image src='../../../images/tc/y_w.png' class='type_right_image' style='width: 50rpx;height: 50rpx;'></image>
+  </navigator>
+
+
+  <view class='wrui-view_display_flex_row bottom_view'>
+      <view class='wrui-view_display_flex_row check_view'>
+          <image src='../../../images/tc/y_w.png'></image>
+          <view>全部</view>
+      </view>
+      <view class='wrui-view_flex_1'></view>
+      <view class='send_view'>发送提醒</view>
+  </view>
+</view>
+
+
+  

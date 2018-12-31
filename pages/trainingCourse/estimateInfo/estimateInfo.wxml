@@ -1,0 +1,28 @@
+<!--pages/trainingCourse/estimateInfo/estimateInfo.wxml-->
+<view class='page_view'>
+  <view style='height: 1rpx;'></view>
+  <navigator class='wrui-view_display_flex_row person_type_view' url='../signInPerson/signInPerson' hover-class='hover_class' style='padding: 30rpx;'>
+    <image class='type_head_image' src='../../../images/tc/y_w.png' style='width: 60rpx;height: 60rpx;padding-right: 10rpx;'></image>
+    <view class='type_left_view'>培训班整体满意度</view>
+    <view class='type_right_view' style='font-size: 30rpx;color: #333;'>
+      <text style='color: #666;font-size: 28rpx;'>平均分 </text>5.0</view>
+
+  </navigator>
+
+  <view class='wrui_view'>
+    <block wx:for="{{4}}">
+      <view class='wrui-view_display_flex_row item_view'>
+        <view class='wrui-view_display_flex_row item_image_view'>
+          <block wx:for="{{5}}" wx:for-item="imageItem">
+            <image src='../../../images/tc/x1.png'></image>
+          </block>
+        </view>
+        <view class='wrui-view_flex_1 name'>12人</view>
+      </view>
+    </block>
+  </view>
+
+
+  <view class='bottom_view'>查看未评估</view>
+
+</view>

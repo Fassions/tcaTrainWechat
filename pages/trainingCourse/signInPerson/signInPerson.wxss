@@ -1,0 +1,33 @@
+/* pages/trainingCourse/signInPerson/signInPerson.wxss */
+
+.head_view{
+
+}
+.not_sign_in{
+  flex: 1;margin-left: 40rpx;border: 1rpx solid #50acfb;border-top-left-radius: 10rpx;border-bottom-left-radius: 10rpx;text-align: center;font-size: 30rpx;color: #333;padding: 15rpx 0;
+}
+.sign_in{
+  flex: 1;margin-right: 40rpx;border: 1rpx solid #50acfb;border-top-right-radius: 10rpx;border-bottom-right-radius: 10rpx;text-align: center;font-size: 30rpx;color: #333;padding: 15rpx 0;
+}
+.sign_in_on{
+  color: white;background: #50acfb;
+}
+
+.item_view{
+  padding: 15rpx 30rpx;background: white;border-bottom: 1rpx solid #f2f2f2;
+}
+.item_view .left_image{
+  width: 60rpx;height: 60rpx;display: block;margin: auto 0;
+}
+.item_view .name{
+  font-size: 28rpx;color: #333;margin: auto 0;
+}
+.q_view{
+
+}
+.q_view image{
+  width: 40rpx;height: 40rpx;display: block;padding-right: 10rpx;margin: auto 0;
+}
+.q_view>view{
+  font-size: 28rpx;color: #333;margin: auto 0;
+}

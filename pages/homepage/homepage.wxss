@@ -1,0 +1,49 @@
+/* pages/homepage/homepage.wxss */
+page{
+  background: white;
+}
+.title_view{
+  padding: 40rpx 30rpx;font-size: 40rpx;font-weight: bold;
+}
+
+.input_view{
+  padding: 30rpx 0;width: calc(100% - 50rpx);margin-right: 50rpx;
+}
+.input{
+  width: 25%;
+}
+.input input{
+  margin-left: 50rpx;width: calc(100% - 50rpx);border-bottom: 4rpx solid #50acfb;height: 40rpx;line-height: 40rpx;text-align: center;padding: 20rpx 0;font-size: 30rpx;color: #333;
+}
+
+
+.publish{
+  width: 80%;border-radius: 40rpx;background: #50acfb;color: white;margin: 30rpx 10%;padding: 20rpx 0;line-height: normal;font-size: 30rpx;
+
+}
+.publish::after{
+  content: none;
+}
+
+
+.f_x_view{
+}
+.f_x_view .h_x{
+  width: 25%;height: 1rpx;margin: auto 0;background: #f2f2f2;
+}
+.f_x_view .name{
+  font-size: 35rpx;color: #999;padding: 0 40rpx;margin: auto 0;
+}
+
+.not_code{
+  width: 100%;text-align: center;font-size: 28rpx;color: #999;
+}
+
+
+
+
+
+
+.scan_image{
+  position: fixed;bottom: 100rpx;width: 240rpx;height: 260rpx;vertical-align: middle;border-radius: 50%;z-index: 20;left: calc(50% - 120rpx);
+}

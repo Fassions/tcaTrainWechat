@@ -1,0 +1,22 @@
+<!--pages/trainingCourse/signInPerson/signInPerson.wxml-->
+<view class='page_view'>
+    <view style='height: 15rpx;'></view>
+    <view class='wrui-view_display_flex_row head_view'>
+        <view class='not_sign_in {{acIndex == 0 ? "sign_in_on" : ""}}' catchtap='btn_not'>未签到</view>
+        <view class='sign_in {{acIndex == 1 ? "sign_in_on" : ""}}' catchtap='btn_go'>已签到</view>
+    </view>
+     <view style='height: 15rpx;'></view>
+
+     <view class='wrui-view'>
+        <block wx:for = "{{personPro}}">
+            <view class='wrui-view_display_flex_row item_view'>
+                <image src='{{item.userIcon}}' class='left_image'></image>
+                <view class='wrui-view_flex_1 name'>{{item.userName}}</view>
+                <view class='wrui-view_display_flex_row q_view'>
+                    <image src='../../../images/tc/not_w.png'></image>
+                    <view>代签</view>
+                </view>
+            </view>
+        </block>
+     </view>
+</view>

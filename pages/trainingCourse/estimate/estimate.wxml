@@ -1,0 +1,76 @@
+<!--pages/trainingCourse/estimate/estimate.wxml-->
+<view class='page_view'>
+  <view class='wrui-view_display_flex_column head_view' style='height: {{sw/9*5}}px;'>
+    <view class='wrui-view_display_flex_column content'>
+      <view class='name'>培训班整体满意度</view>
+      <view class='f_num'>{{estimatePro.studentAssessAVG}}</view>
+      <view class='dec'>平均分</view>
+      <view style='height: 40rpx;'></view>
+      <navigator class='c_k_view' url='../estimateAllInfo/estimateAllInfo'>查看详情 ></navigator>
+    </view>
+    <image src='../../../images/tc/pg.png' class="back_image"></image>
+
+    <view class='right_po_view'>
+      <view class='c_y_l'>参与率{{estimatePro.train_v}}%</view>
+      <navigator class='w_c_y' url='../notEstimatePerson/notEstimatePerson?assessId={{estimatePro.assessId}}'>未参与学员?</navigator>
+    </view>
+  </view>
+
+
+  <view class='wrui-view'>
+    <block wx:for="{{courselist}}">
+      <navigator class='wrui-view_display_flex_row item_view' url='{{item.publishStatus ? "../estimateInfo/estimateInfo" : ""}}' catchtap='btn_course_estimate' data-index = "{{index}}">
+        <view class='wrui-view_flex_1 wrui-view_display_flex_column left_view'>
+          <view class='name'>课程评估</view>
+          <view class='title'>{{item.assessTitle}}</view>
+          <view class='other'>
+            <view style='padding-right: 80rpx;'>参与率 {{item.people_v}}%</view>
+            <view>平均分 {{item.averagePoint}}</view>
+          </view>
+        </view>
+        <view class='wrui-view_display_flex_column right_view'>
+          <block wx:if="{{item.publishStatus}}">
+            <view class='wrui-view_display_flex_row name_view_on' catchtap='btn_is_publish_c' data-index = "{{index}}">
+              <view class='name_on'>已发布</view>
+              <view class='yuan'></view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class='wrui-view_display_flex_row name_view' catchtap='btn_is_publish_c' data-index = "{{index}}">
+              <view class='yuan'></view>
+              <view class='name'>未发布</view>
+            </view>
+          </block>
+
+        </view>
+      </navigator>
+    </block>
+
+    <block wx:for="{{questionList}}">
+      <view class='wrui-view_display_flex_row item_view'>
+        <view class='wrui-view_flex_1 wrui-view_display_flex_column left_view' url='{{item.status == 1 ? "../estimateInfo/estimateInfo" : ""}}'>
+          <view class='name'>问卷评估</view>
+          <view class='title'>{{item.question_name}}</view>
+          <view class='other'>
+            <view style='padding-right: 80rpx;'>参与率 {{item.referenceRate}}%</view>
+          </view>
+        </view>
+        <view class='wrui-view_display_flex_column right_view'>
+          <block wx:if="{{item.status == 1}}">
+            <view class='wrui-view_display_flex_row name_view_on' catchtap='btn_is_publish_q' data-index = "{{index}}">
+              <view class='name_on'>已发布</view>
+              <view class='yuan'></view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class='wrui-view_display_flex_row name_view' catchtap='btn_is_publish_q' data-index = "{{index}}">
+              <view class='yuan'></view>
+              <view class='name'>未发布</view>
+            </view>
+          </block>
+
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,50 @@
+/* pages/trainingCourse/signInInfo/signInInfo.wxss */
+
+.head_view{
+  padding: 20rpx 30rpx;background: white;border-top: 1rpx solid #f2f2f2;
+}
+.head_view .name{
+  font-size: 35rpx;color: #333;
+}
+.head_view .person{
+  font-size: 28rpx;color: #666;padding-top: 10rpx;
+}
+.item_view{
+  background: white;margin-top: 16rpx;
+}
+.item_view .dates_view{
+  padding: 20rpx 30rpx;font-size: 28rpx;color: #666;border-bottom: 1rpx solid #f2f2f2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.person_type_view{
+  padding: 25rpx 30rpx;background: white;border-bottom: 1rpx solid #f2f2f2;
+}
+.type_head_image{
+  width: 40rpx;height: 40rpx;display: block;margin: auto 0;
+}
+.type_left_view{
+  flex: 1;font-size: 30rpx;color: #333;margin: auto 10rpx;
+}
+.type_right_view{
+  font-size: 28rpx;margin: auto 0;margin-right: 10rpx;color: #333;
+}
+.type_right_image{
+  width: 35rpx;height: 35rpx;display: block;margin: auto 0;
+}

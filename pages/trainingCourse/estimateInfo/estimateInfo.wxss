@@ -1,0 +1,65 @@
+/* pages/trainingCourse/estimateInfo/estimateInfo.wxss */
+
+
+
+
+
+
+
+
+
+
+
+
+
+.person_type_view{
+  padding: 25rpx 30rpx;background: white;border-bottom: 1rpx solid #f2f2f2;
+}
+.type_head_image{
+  width: 40rpx;height: 40rpx;display: block;margin: auto 0;
+}
+.type_left_view{
+  flex: 1;font-size: 30rpx;color: #333;margin: auto 10rpx;
+}
+.type_right_view{
+  font-size: 28rpx;margin: auto 0;margin-right: 10rpx;color: #333;
+}
+.type_right_image{
+  width: 35rpx;height: 35rpx;display: block;margin: auto 0;
+}
+
+
+
+
+
+
+
+
+
+.wrui_view{
+    background: white;
+}
+.item_view{
+  padding: 30rpx;
+}
+.item_image_view{
+  justify-content: left;margin: auto 0;
+}
+
+.item_image_view image{
+  width: 55rpx;height: 55rpx;display: block;margin: auto 0;padding-right: 20rpx;
+}
+.item_view .name{
+  color: #333;font-size: 32rpx;margin: auto 0;padding-left: 20rpx;
+}
+
+
+
+
+
+
+
+
+.bottom_view{
+  background: #50acfb;color: white;position: fixed;width: 100%;bottom: 0;left: 0;padding: 25rpx 0;font-size: 32rpx;text-align: center;
+}

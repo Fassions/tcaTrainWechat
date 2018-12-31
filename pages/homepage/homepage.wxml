@@ -1,0 +1,39 @@
+<!--pages/homepage/homepage.wxml-->
+<view class='page_view'>
+
+    <view class='title_view'>请输入邀请码</view>
+
+    <view class='wrui-view_display_flex_row input_view'>
+        <view class='input'>
+            <input maxlength = '1'></input>
+        </view>
+
+        <view class='input'>
+            <input maxlength = '1'></input>
+        </view>
+
+        <view class='input'>
+            <input maxlength = '1'></input>
+        </view>
+
+        <view class='input'>
+            <input maxlength = '1'></input>
+        </view>
+    </view>
+    <view style='height: 30rpx;'></view>
+    <button class='publish' form-type='submit'>确定</button>
+
+
+    <view class='wrui-view_display_flex_row f_x_view'>
+        <view class='h_x'></view>
+        <view class='name'>OR</view>
+        <view class='h_x'></view>
+    </view>
+
+    <view class='not_code'>没有邀请码？</view>
+
+
+</view>
+
+
+<image src='../../images/homepage/sao.png' class='scan_image' catchtap='btn_scan'></image>

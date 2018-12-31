@@ -1,0 +1,41 @@
+/* pages/trainingCourse/notEstimatePerson/notEstimatePerson.wxss */
+
+
+.person_type_view{
+  padding: 25rpx 30rpx;background: white;border-bottom: 1rpx solid #f2f2f2;
+}
+.type_head_image{
+  width: 40rpx;height: 40rpx;display: block;margin: auto 0;
+}
+.type_left_view{
+  flex: 1;font-size: 30rpx;color: #333;margin: auto 10rpx;
+}
+.type_right_view{
+  font-size: 28rpx;margin: auto 0;margin-right: 10rpx;color: #333;
+}
+.type_right_image{
+  width: 35rpx;height: 35rpx;display: block;margin: auto 0;
+}
+
+
+
+
+
+
+
+.bottom_view{
+  background: white;border-top: 1rpx solid #f2f2f2;position: fixed;bottom: 0;width: 100%;
+}
+.check_view{
+  margin: auto 0;padding-left: 30rpx;
+}
+.check_view image{
+  width: 50rpx;height: 50rpx;display: block;padding-right: 20rpx;
+}
+.check_view>view{
+  color: #333;font-size: 32rpx;margin: auto 0;
+}
+
+.send_view{
+  font-size: 35rpx;background: #50acfb;color: white;padding: 25rpx 30rpx;
+}

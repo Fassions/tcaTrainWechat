@@ -1,0 +1,46 @@
+{
+  "pages":[
+   "pages/homepage/homepage",
+   "pages/trainingCourse/trainingCourse",
+   "pages/trainingCourse/signIn/signIn",
+   "pages/personal/personal",
+   "pages/trainingCourse/signInInfo/signInInfo",
+   "pages/trainingCourse/signInPerson/signInPerson",
+   "pages/trainingCourse/estimate/estimate",
+   "pages/trainingCourse/estimateInfo/estimateInfo",
+   "pages/trainingCourse/estimateAllInfo/estimateAllInfo",
+   "pages/trainingCourse/notEstimatePerson/notEstimatePerson"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "娱叉",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#50acfb",
+    "borderStyle": "#ffffff",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "selectedIconPath": "images/tab/shouye0.png",
+        "iconPath": "images/tab/shouye.png",
+        "pagePath": "pages/homepage/homepage",
+        "text": "报名"
+      },
+      {
+        "selectedIconPath": "images/tab/peixunban0.png",
+        "iconPath": "images/tab/peixunban.png",
+        "pagePath": "pages/trainingCourse/trainingCourse",
+        "text": "培训班"
+      },
+      {
+        "selectedIconPath": "images/tab/wode0.png",
+        "iconPath": "images/tab/wode.png",
+        "pagePath": "pages/personal/personal",
+        "text": "我的"
+      }
+    ]
+  }
+}

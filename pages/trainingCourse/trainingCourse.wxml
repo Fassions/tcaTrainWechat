@@ -1,0 +1,8 @@
+<!--pages/trainingCourse/trainingCourse.wxml-->
+<view class='page_view'>
+    <view class='wrui_view'>
+        <block wx:for = "{{1}}">
+            <navigator url='signIn/signIn'>跳转到签到</navigator>
+        </block>
+    </view>
+</view>
