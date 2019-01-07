@@ -1,0 +1,13 @@
+<!--pages/personal/personalInfo/personalInfo.wxml-->
+<view class='page_view'>
+    <view class='head_view'>
+        <view class='title_view'></view>
+        <view class='z_b'></view>
+        <view class='date'></view>
+    </view>
+
+    <view class='content_view'>
+        
+    </view>
+
+</view>

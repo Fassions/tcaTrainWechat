@@ -1,0 +1,29 @@
+<!--pages/trainingCourse/studentEstimateOne/studentEstimateOne.wxml-->
+<view class='page_view'>
+  <block wx:for = "{{assessList}}" wx:for-item = "tempItem" wx:for-index = "tempIndex">
+       <view class='wrui-view_display_flex_row person_type_view' url='../studentEstimateAll/studentEstimateAll' hover-class='hover_class'>
+    <image src='../../../images/tc/manyi.png' class='type_head_image' style='width: 32rpx;height: 40rpx;padding: 0 4rpx;margin-right: 10rpx;'></image>
+    <view class='type_left_view'>
+        <view>{{tempItem.courseName}}</view>
+        <view style='color: #666;font-size: 25rpx;'>{{tempItem.assessTitle}}</view>
+    </view>
+  </view>
+  <view class='wrui-view_display_flex_row xx_view'>
+      <view class='wrui-view_display_flex_row x_image'>
+          <block wx:for = "{{5}}" wx:for-index = "xIndex">
+              <block wx:if = "{{tempItem.num > xIndex}}">
+              <image src='../../../images/tc/x1.png' catchtap='btn_x_image' data-index = "{{xIndex}}" data-tempIndex = "{{tempIndex}}"></image>
+          </block>
+          <block wx:else>
+            <image src='../../../images/tc/x0.png' catchtap='btn_x_image' data-index = "{{xIndex}}" data-tempIndex = "{{tempIndex}}"></image>
+          </block>
+          </block>
+      </view>
+
+      <view class='wrui-view_flex_1 h_h'>好</view>
+
+      <view class='wrui-view_display_flex_column right_view' catchtap='btn_submit' data-tempIndex = "{{tempIndex}}">提交</view>
+  </view>
+  </block>
+
+</view>

@@ -7,16 +7,37 @@
     </view>
      <view style='height: 15rpx;'></view>
 
-     <view class='wrui-view'>
+     <view class='wrui-view' hidden='{{acIndex != 0}}'>
         <block wx:for = "{{personPro}}">
-            <view class='wrui-view_display_flex_row item_view'>
+            <view class='wrui-view_display_flex_row item_view' >
                 <image src='{{item.userIcon}}' class='left_image'></image>
                 <view class='wrui-view_flex_1 name'>{{item.userName}}</view>
-                <view class='wrui-view_display_flex_row q_view'>
+                <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index = "{{index}}">
                     <image src='../../../images/tc/not_w.png'></image>
                     <view>代签</view>
+                </view>
+
+                <view class='wrui-view_display_flex_row q_view' style='padding-left: 30rpx;' catchtap='btn_select_z' data-index = "{{index}}">
+                    <image src='../../../images/tc/not_w.png'></image>
+                    <view>准假</view>
                 </view>
             </view>
         </block>
      </view>
+     <view class='wrui-view' hidden='{{acIndex != 1}}'>
+      <block wx:for = "{{personPro}}">
+            <view class='wrui-view_display_flex_row item_view' >
+                <image src='{{item.userIcon}}' class='left_image'></image>
+                <view class='wrui-view_flex_1 name'>{{item.userName}}</view>
+                <view class='wrui-view_display_flex_row q_view'>
+                    <view>代签</view>
+                </view>
+
+                
+            </view>
+        </block>
+     </view>
+
+     <view style='height: 100rpx;'></view>
+  <view class='bottom_view'>确定</view>
 </view>

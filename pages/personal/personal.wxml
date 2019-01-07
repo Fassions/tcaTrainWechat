@@ -1,2 +1,43 @@
 <!--pages/personal/personal.wxml-->
-<text>pages/personal/personal.wxml</text>
+<!--pages/trainingCourse/trainingCourse.wxml-->
+<view class='page_view'>
+
+  <view class='input_view'>
+    <view class='wrui-view_display_flex_row type_input'>
+      <icon type='search' class='icon_view' size='30rpx'></icon>
+      <view class='input_n'>
+        <input placeholder='请输入关键字' bindinput='btn_input'></input>
+      </view>
+    </view>
+  </view>
+  <view style='height: 104rpx;'></view>
+
+  <view class='wrui_view'>
+    <block wx:for="{{coursePro}}" wx:if = "{{item.class_checked == 2}}">
+      <view class='wrui-view_display_flex_row item_view' catchtap='btn_couse_info' data-index="{{index}}">
+        <view class='wrui-view_display_flex_column left_view'>
+          <view class='year'>{{item.year}}</view>
+          <view class='wrui-view_flex_1 wrui-view_display_flex_column month'>{{item.month}}月</view>
+        </view>
+
+        <view class='wrui-view_flex_1 wrui-view_display_flex_column right_view'>
+          <view class='wrui-view_display_flex_row title_view'>
+            <view class='wrui-view_flex_1'>{{item.class_name}}</view>
+            <block wx:if="{{item.class_checked == 0}}">
+              <image src='../../images/homepage/j_s.png'></image>
+            </block>
+          </view>
+          <view class='organizers_view'>主办单位：{{item.org_name}}</view>
+          <view class='date_view'>{{item.start_date + '至' + item.end_date}} 共
+            <text style='color: #50acfb'>{{item.day}}</text>天</view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{pageSize.total_size == pageSize.page_size}}">
+      <view class="weui-loadmore" style='width: 100%;float: left;'>
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -13,7 +13,7 @@ Page({
     }, {
       image: '../../../images/tc/richeng.png',
       name: '公告',
-      to: '../community/community'
+        to: '../notice/notice'
     }],
     sw: 0,
     isStatus: false,
@@ -110,15 +110,20 @@ Page({
 
      
         if (res.data != '0') {
-          var item = that.trimKong(res.data);
+          var item = res.data;
           console.log(item);
-          var signInRate = parseInt(item.notSignPeople / (item.notSignPeople + item.shouldSignPeople) * 100);
+          var signInRate = 0;
+          if ((item.notSignPeople + item.shouldSignPeople) != 0){
+            signInRate = parseInt(item.notSignPeople / (item.notSignPeople + item.shouldSignPeople) * 100);
+          }
+         
           that.setData({
             signPsw: item.code.split(""),
             signInRate: signInRate,
             notSignPeople: item.notSignPeople,
             isStatus: true
           })
+          console.log(that.data.notSignPeople);
         }
     })
   },
@@ -131,33 +136,19 @@ Page({
     }
     app.requestPost(that, app.globalData.urlApi.goSignInManage, parameter, function(res) {
       if (res.data != '0') {
-        var item = that.trimKong(res.data);
+        var item = res.data;
         console.log(item);
         var signInRate = parseInt(item.notSignPeople / (item.notSignPeople + item.shouldSignPeople) * 100);
 
         that.setData({
           signPsw: item.code.split(""),
           signInRate: signInRate,
-          isStatus: true
+          isStatus: true,
+          notSignPeople: item.notSignPeople
         })
       }
 
     })
-  },
-  trimKong: function(s) {
-
-    return JSON.parse(trim(s));
-
-    function trim(str) {
-      str = str.replace(/^(\s|\u00A0)+/, '');
-      for (var i = str.length - 1; i >= 0; i--) {
-        if (/\S/.test(str.charAt(i))) {
-          str = str.substring(0, i + 1);
-          break;
-        }
-      }
-      return str;
-    }
   },
   getNowFormatDate: function() { //获取当前时间
     var date = new Date();

@@ -7,26 +7,10 @@ App({
     var that = this;
     that.globalData.urlApi = url.urlApi;
        
-     //that.getNetWork(); //判断网络情况
-     //that.onNetWork(); //监听网络状态
+     that.getNetWork(); //判断网络情况
+     that.onNetWork(); //监听网络状态
    
   },
-  /**
-   * 跳转
-   */
-  // navigateWx: function (that, url, parameterStrng, isJudgeNetWork){
-  //   skip.navigateWx(that, url, parameterStrng, isJudgeNetWork);
-  // },
-  // redirectWx: function (that, url, parameterStrng, isJudgeNetWork){
-  //   skip.redirectWx(that, url, parameterStrng, isJudgeNetWork);
-  // },
-  // switchTabWx: function (that, url, parameterStrng, isJudgeNetWork){
-  //   skip.switchTabWx(that, url, parameterStrng, isJudgeNetWork);
-  // },
-  // reLaunchWx: function (that, url, parameterStrng, isJudgeNetWork){
-  //   skip.reLaunchWx(that, url, parameterStrng, isJudgeNetWork);
-  // },
-
   /**
    * 网络请求
    */
@@ -39,7 +23,7 @@ App({
   requestParameterGet: function(that, url, parameter, doSuccess, quantity, isLoading, doFail, doComplete) {
     network.requestParameterGET(that, url, parameter, doSuccess, quantity, isLoading, doFail, doComplete);
   },
-  getOpenId:function(){//获取openId
+  getOpenId:function(info){//获取openId
     var that = this;
     wx.login({
       success: res => {
@@ -49,14 +33,15 @@ App({
           code: res.code
         }
         that.requestPost(that, url.urlApi.getOpenId, parameter, function (resOp){
-          if (resOp.data.code == 1) {
-            that.globalData.openId = resOp.data.openId.openid;
+          that.globalData.openId = resOp.data.openId;
+          that.globalData.sessionKey = resOp.data.session_key;
+          
+          if (info == 0){
             that.getUserInfo(); //获取用户微信个人信息
-            
-            if (that.openIdReadyCallback) {
-              that.openIdReadyCallback(resOp.data.openId.openid)
-            }
           }
+            if (that.openIdReadyCallback) {
+              that.openIdReadyCallback(resOp.data.openId)
+            }
         })
       }
     })
@@ -68,7 +53,7 @@ App({
         that.globalData.isNetwork = true;
 
         if (!that.globalData.openId) {
-          that.getOpenId();
+         // that.getOpenId();
         }
       } else {
         that.globalData.isNetwork = false;
@@ -86,14 +71,12 @@ App({
   getNetWork:function(){
 
     var that = this;
-
     wx.getNetworkType({
       success: function(res) {
         if(res.networkType == 'none'){
           that.globalData.isNetwork = false;
         }
-
-        that.getOpenId(); 
+        that.getUserId(); 
       },
     })
   },
@@ -108,7 +91,7 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           that.getUserInfoData();
         }else{
-          that.saveOpenId(that.globalData.openId);
+         // that.saveOpenId(that.globalData.openId);
         }
       }
     })
@@ -120,7 +103,9 @@ App({
         console.log(res);
         // 可以将 res 发送给后台解码出 unionId
         that.globalData.userInfo = res.userInfo
-        that.saveOpenId(that.globalData.openId, res.userInfo);
+       // that.saveOpenId(that.globalData.openId, res.userInfo);
+       
+        that.getUnionid(res);
         // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
         // 所以此处加入 callback 以防止这种情况
         if (that.userInfoReadyCallback) {
@@ -140,7 +125,12 @@ App({
     imageUrl: 'https://api.wechat800.cn/huanbei_xcx/',
     trainId: 'ff80808167ca34b10167cac2b63a0004',
     userId: '5219499',
-    estmatePro: {}
+    estmatePro: {},
+    appId: 'wx79b14d4085d2df9d',
+    sessionKey: null,
+    unionId: null,
+    assessList: null,
+    tempList: null
   },
   saveOpenId: function (openId, userInfo = null) {
     var that = this;
@@ -167,6 +157,41 @@ App({
       }
       return str;
     }
+  },
+  getUnionid:function(res){
+    var that = this;
+
+    var parameter = {
+      encryptedData: res.encryptedData,
+      sessionKey: that.globalData.sessionKey,
+      iv: res.iv,
+      type: 1
+    }
+    that.requestPost(that, url.urlApi.getUserInfoUrl, parameter, function (res) {
+      that.globalData.unionId = res.data.unionId;
+      if (that.unionIdReadyCallback) {
+        that.unionIdReadyCallback(res)
+      }
+    })
+  },
+  getUserId:function(){
+    var that = this
+    wx.getStorage({
+      key: 'userId',
+      success: function(res) {
+        console.log(res);
+        if(res.data != -1){
+          that.globalData.userId = res.data;
+          that.getOpenId(1);
+        }else{
+          that.getOpenId(0);
+        }
+       
+      },
+      fail:function(){
+        that.getOpenId(0);
+      }
+    })
   }
 })
 

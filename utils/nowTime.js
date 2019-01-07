@@ -6,13 +6,19 @@ function getTimeData(dateString){//获取某时间到某时间的时长
   return timeDifference(newTime, nowTime);
 }
 
-function timeDifference(startTime, endTime) {
+function getTwoTimeData(startTime, endTime) {//获取某时间到某时间的时长
+  var newTime = strToDate(startTime);
+  var nowTime = strToDate(endTime);
 
+  return timeDifference(newTime, nowTime);
+}
+
+function timeDifference(startTime, endTime) {
 
   var nowTime = endTime.getTime() - startTime.getTime();
 
   if (nowTime <= 0) {
-    var timeObj = { 'hours': '00', 'minutes': '00', 'seconds': '00' };
+    var timeObj = '1';
     return timeObj;
   }
   var years = Math.floor(nowTime / (365 * 3600 * 1000 * 24));
@@ -29,38 +35,38 @@ function timeDifference(startTime, endTime) {
   //计算相差分钟数  
   var leave2 = leave1 % (3600 * 1000);        //计算小时数后剩余的毫秒数  
   var minutes = Math.floor(leave2 / (60 * 1000));
- 
+
   //计算相差秒数  
   var leave3 = leave2 % (60 * 1000);      //计算分钟数后剩余的毫秒数  
   var seconds = Math.round(leave3 / 1000);
- 
+
   var timeObj = {};
   timeObj['hours'] = hours;
   timeObj['minutes'] = minutes;
   timeObj['seconds'] = seconds;
-  if (years > 0){
-    return years + '年前';
-  }else {
-    if(months > 0){
-      return months + '月前'
-    }else{
+  if (years > 0) {
+    return years + '年';
+  } else {
+    if (months > 0) {
+      return months + '月'
+    } else {
       if (days > 0) {
-        return days + '天前';
+        return days + '';
       } else {
 
         if (hours > 0) {
-          return hours + '小时之前';
+          return hours + '小时';
         } else {
           if (minutes > 0) {
-            return minutes + '分钟之前';
+            return minutes + '分钟';
           } else {
-            return '刚刚';
+            return '1';
           }
         }
       }
     }
   }
-  
+
 }
 
 function strToDate (dateObj) {
@@ -206,5 +212,6 @@ module.exports = {
   timeCountDown: timeCountDown,
   getNowFormatDay: getNowFormatDay,
   getTimeStampFormatDate: getTimeStampFormatDate,
-  getTimeStampValueOf: getTimeStampValueOf
+  getTimeStampValueOf: getTimeStampValueOf,
+  getTwoTimeData: getTwoTimeData
 }

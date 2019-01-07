@@ -9,14 +9,17 @@ Page({
     pageInt: 0,
     isLoadMore: false,
     historyPro: [],
-    pageSize: {}
+    pageSize: {},
+    info: 0,
+    personInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getSignInInfo(1, 0);
+    this.data.info = options.info;
+    
   },
 
   /**
@@ -30,7 +33,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.getPersonalInfo();
+    this.getSignInInfo(1, 0);
   },
   /**
    * 页面上拉触底事件的处理函数
@@ -46,32 +50,36 @@ Page({
       trainId: app.globalData.trainId,
       current_page: pageInt
     }
-    app.requestPost(that, app.globalData.urlApi.signInfoInfo, parameter, function(res) {
+    if (that.data.info != 1){
+      parameter['userId'] = app.globalData.userId;
+    }
+    app.requestPost(that, that.data.info == 1 ? app.globalData.urlApi.signInfoInfo : app.globalData.urlApi.studentSignInInfo, parameter, function(res) {
 
 
       if (res.data != '0') {
-        var item = that.trimKong(res.data).items;
-        var pageSize = that.trimKong(res.data).page;
-        console.log(item);
+        var item = res.data.items;
+        var pageSize = res.data.page;
         if (pageSize.total_size > 0) {
-
+          console.log(111);
           for (var i = 0; i < item.length; i++) {
-
-            item[i]['dates'] = that.getNowFormatDay(item[i].date);
+            var date1 = '';
+            if (that.data.info == 1){
+              date1 = item[i].date;
+            }else{
+              date1 = item[i].signDate;
+            }
+            console.log(date1);
+            item[i]['dates'] = that.getNowFormatDay(date1);
+            
           }
 
           if (pageType == 1) {
             item = that.data.historyPro.concat(item);
           }
 
-
-
         } else {
           item = null;
         }
-
-
-
 
         that.setData({
           historyPro: item,
@@ -81,23 +89,8 @@ Page({
       }
     })
   },
-  trimKong: function(s) {
-
-    return JSON.parse(trim(s));
-
-    function trim(str) {
-      str = str.replace(/^(\s|\u00A0)+/, '');
-      for (var i = str.length - 1; i >= 0; i--) {
-        if (/\S/.test(str.charAt(i))) {
-          str = str.substring(0, i + 1);
-          break;
-        }
-      }
-      return str;
-    }
-  },
-  getNowFormatDay: function() { //获取当前时间
-    var date = new Date();
+  getNowFormatDay: function(dateN) { //获取当前时间
+    var date = new Date(dateN);
     var seperator1 = "-";
     var seperator2 = ":";
     var month = date.getMonth() + 1;
@@ -128,5 +121,24 @@ Page({
       'currentday': currentday
     }
     return objDate;
+  },
+  getPersonalInfo:function(){
+    
+
+    var that = this;
+    var parameter = {
+      userId: app.globalData.userId,
+    }
+    app.requestPost(that, app.globalData.urlApi.getPersonalInfoUrl, parameter, function (res) {
+
+
+      if (res.data != '0') {
+        that.setData({
+          personInfo: res.data
+        })
+
+      }
+    })
   }
+
 })

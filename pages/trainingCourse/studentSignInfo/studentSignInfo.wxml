@@ -1,0 +1,50 @@
+<!--pages/trainingCourse/studentSignInfo/studentSignInfo.wxml-->
+<view class='page_view'>
+    <view class='title_view'>请输入邀请码</view>
+    <form bindsubmit='btnStudentSigIn'>
+    <view class='wrui-view_display_flex_row input_view'>
+        <view class='input'>
+            <input maxlength = '1' name = 'input1'></input>
+        </view>
+
+        <view class='input'>
+            <input maxlength = '1' name = 'input2'></input>
+        </view>
+
+        <view class='input'>
+            <input maxlength = '1' name = 'input3'></input>
+        </view>
+
+        <view class='input'>
+            <input maxlength = '1' name = 'input4'></input>
+        </view>
+    </view>
+    <view style='height: 30rpx;'></view>
+    <button class='publish' form-type='submit'>确定</button>
+    </form>
+    <view style='height: 30rpx;'></view>
+     <view style='height: 16rpx;background: #f2f2f2;'></view>
+
+  <navigator class='wrui-view_display_flex_row person_type_view' url='../signInInfo/signInInfo?info=2' hover-class='hover_class'>
+    <!-- <image src='../../images/personal/s_j.png' class='type_head_image'></image> -->
+    <view class='type_left_view'>签到详情</view>
+    <image src='../../../images/tc/right.png' class='type_right_image'></image>
+  </navigator>
+
+  <view style='height: 16rpx;background: #f2f2f2;'></view>
+
+   <view class='wrui-view_display_flex_row f_x_view'>
+        <view class='h_x'></view>
+        <view class='name'>其他</view>
+        <view class='h_x'></view>
+    </view>
+
+  <view class='wrui-view_display_flex_row wrui_row_list_image_view'>
+    <block wx:for="{{homeTab}}">
+      <navigator class='wrui_row_list_image_item' url='{{item.to}}' style='width: {{100/homeTab.length}}%;'>
+        <image src='{{item.image}}' style='{{item.style}}'></image>
+        <view>{{item.name}}</view>
+      </navigator>
+    </block>
+  </view>
+</view>

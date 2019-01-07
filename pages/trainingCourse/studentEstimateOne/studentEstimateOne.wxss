@@ -1,0 +1,38 @@
+/* pages/trainingCourse/studentEstimateOne/studentEstimateOne.wxss */
+
+
+.person_type_view{
+  padding: 25rpx 30rpx;background: white;border-bottom: 1rpx solid #f2f2f2;
+}
+.type_head_image{
+  width: 40rpx;height: 40rpx;display: block;margin: auto 0;
+}
+.type_left_view{
+  flex: 1;font-size: 30rpx;color: #333;margin: auto 10rpx;
+}
+.type_left_view>view{
+  font-size: 30rpx;color: #333;
+}
+.type_right_view{
+  color: red;font-size: 25rpx;margin: auto 0;margin-right: 10rpx;
+}
+.type_right_image{
+  width: 35rpx;height: 35rpx;display: block;margin: auto 0;
+}
+
+
+.xx_view{
+  border-bottom: 1rpx solid #f2f2f2;background: #f5faff;
+}
+.x_image{
+  padding: 30rpx;margin: auto 0;
+}
+.x_image image{
+  width: 45rpx;height: 45rpx;display: block;margin-right: 20rpx;
+}
+.h_h{
+  font-size: 28rpx;color: #999;margin: auto 0;
+}
+.right_view{
+  background: #50acfb;color: white;font-size: 32rpx;padding: 0 60rpx;text-align: center;
+}

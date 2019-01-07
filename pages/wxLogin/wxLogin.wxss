@@ -1,0 +1,15 @@
+/* pages/wxLogin/wxLogin.wxss */
+
+
+
+
+
+.title{
+  width: 100%;font-weight: bold;color: #1d24ab;float: left;font-size: 80rpx;text-align: center;margin-top: 50%;
+}
+.login_buton{
+  margin-top: 80rpx;float: left;width: 80%;margin-left: 10%;height: 90rpx;line-height: 90rpx;font-size: 37rpx;background: #1d24ab;color: white;
+}
+.login_buton::after{
+  content: none;
+}

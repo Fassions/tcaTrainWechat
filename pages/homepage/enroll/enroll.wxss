@@ -1,0 +1,60 @@
+/* pages/homepage/enroll/enroll.wxss */
+
+.title_view{
+  background: white;padding: 20rpx 30rpx;font-size: 30rpx;color: #333;
+}
+
+.wrui_row_view{
+  padding: 10rpx 0;background: white;
+}
+.wrui_row_view .left_image{
+  width: 200rpx;height: 150rpx;display: block;margin: auto 30rpx;border-radius: 20rpx;
+}
+.wrui_row_view .right_view{
+  margin: auto 0;
+}
+.wrui_row_view .right_view .name{
+  font-size: 35rpx;color: #333;font-weight: bold;
+}
+.wrui_row_view .right_view .date{
+  padding: 10rpx 0;color: #999;font-size: 28rpx;
+}
+.wrui_row_view .right_view .right_bo{
+  justify-content: left;
+}
+.wrui_row_view .right_view .right_bo image{
+  width: 25rpx;height: 30rpx;display: block;margin: auto 0;
+}
+.wrui_row_view .right_view .right_bo>view{
+  font-size: 25rpx;color: #999;padding-left: 10rpx;
+}
+
+
+
+
+.pirce_view{
+  background: white;padding: 20rpx 30rpx;font-size: 40rpx;color: #ff6600;font-weight: bold;
+}
+.e_date{
+  padding: 0 30rpx;font-size: 28rpx;color: #666;background: white;
+}
+
+
+
+.co_view{
+  background: white;padding: 0 30rpx;
+}
+
+.co_type_view{
+  font-size: 30rpx;padding: 20rpx 0;border-bottom: 1rpx solid #f2f2f2;color: #dad6d6;
+}
+
+
+
+
+
+
+
+.bottom_view{
+  background: #50acfb;color: white;position: fixed;width: 100%;bottom: 0;left: 0;padding: 25rpx 0;font-size: 32rpx;text-align: center;
+}

@@ -16,7 +16,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.setNavigationBarTitle({
       title: options.info,
     })
@@ -27,17 +27,17 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     this.getSignInInfo(this.data.date, this.data.times, this.data.acIndex, 1, 0);
   },
-  getSignInInfo: function (date, time, activeIndex, pageInt, pageType, qu = 0, isL = true) { 
+  getSignInInfo: function(date, time, activeIndex, pageInt, pageType, qu = 0, isL = true) {
     var that = this;
     var parameter = {
       trainId: app.globalData.trainId,
@@ -46,12 +46,12 @@ Page({
       date: date,
       time: time
     }
-    app.requestPost(that, app.globalData.urlApi.signInPerson, parameter, function (res) {
+    app.requestPost(that, app.globalData.urlApi.signInPerson, parameter, function(res) {
 
 
       if (res.data != '0') {
-        var item = app.trimKong(res.data).items;
-        var pageSize = that.trimKong(res.data).page;
+        var item = res.data.items;
+        var pageSize = res.data.page;
         console.log(item);
         if (pageSize.total_size > 0) {
 
@@ -76,9 +76,9 @@ Page({
       }
     }, qu, isL)
   },
-  btn_not:function(){
+  btn_not: function() {
 
-    if(this.data.acIndex != 0){
+    if (this.data.acIndex != 0) {
       this.data.acIndex = 0;
       this.getSignInInfo(this.data.date, this.data.times, this.data.acIndex, 1, 0);
 
@@ -87,7 +87,7 @@ Page({
       })
     }
   },
-  btn_go: function () {
+  btn_go: function() {
 
     if (this.data.acIndex != 1) {
       this.data.acIndex = 1;
@@ -97,6 +97,13 @@ Page({
         acIndex: this.data.acIndex
       })
     }
+
+
+  },
+  btn_select_d: function(e) {
+    var index = e.currentTarget.dataset.index;
+    var personPro = this.data.personPro;
+
 
 
   }

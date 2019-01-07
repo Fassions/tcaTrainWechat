@@ -30,6 +30,15 @@ function requestGet(that, url, doSuccess, quantity = 0, isLoading = true, doFail
     success: function (res) {
       console.log(res);
 
+      if (typeof res.data == 'string' && res.data != 'null' && res.data != '' && res.data.indexOf('}')> -1) {
+        res.data = app.trimKong(res.data);
+
+        if (typeof res.data == 'string') {
+          res.data = app.trimKong(res.data);
+        }
+
+      }
+
       if (typeof doSuccess == "function") {
         if (isLoading) {
           hideLoading();
@@ -97,6 +106,15 @@ function requestPost(that, url, parameter, doSuccess, quantity = 0, isLoading = 
     },
     success: function (res) {
       console.log(res);
+
+      if (typeof res.data == 'string' && res.data != 'null' && res.data != '' && res.data.indexOf('}') > -1) {
+        res.data = app.trimKong(res.data);
+
+        if (typeof res.data == 'string') {
+          res.data = app.trimKong(res.data);
+        }
+
+      }
 
       if (typeof doSuccess == "function") {
         if (isLoading) {
@@ -171,6 +189,15 @@ function requestParameterGET(that, url, parameter, doSuccess, quantity = 0, isLo
     },
     success: function (res) {
       console.log(res);
+
+      if (typeof res.data == 'string' && res.data != 'null' && res.data != '' && res.data.indexOf('}') > -1) {
+        res.data = app.trimKong(res.data);
+
+        if (typeof res.data == 'string') {
+          res.data = app.trimKong(res.data);
+        }
+
+      }
 
       if (typeof doSuccess == "function") {
         if (isLoading) {

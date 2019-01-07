@@ -9,12 +9,23 @@
    "pages/trainingCourse/estimate/estimate",
    "pages/trainingCourse/estimateInfo/estimateInfo",
    "pages/trainingCourse/estimateAllInfo/estimateAllInfo",
-   "pages/trainingCourse/notEstimatePerson/notEstimatePerson"
+   "pages/trainingCourse/notEstimatePerson/notEstimatePerson",
+   "pages/trainingCourse/studentSignInfo/studentSignInfo",
+   "pages/trainingCourse/studentEstimate/studentEstimate",
+   "pages/trainingCourse/studentEstimateAll/studentEstimateAll",
+   "pages/trainingCourse/studentEstimateOne/studentEstimateOne",
+   "pages/trainingCourse/studentSchedule/studentSchedule",
+   "pages/trainingCourse/notice/notice",
+   "pages/trainingCourse/publishNotice/publishNotice",
+   "pages/wxLogin/wxLogin",
+   "pages/homepage/enroll/enroll",
+   "pages/homepage/enrollInfo/enrollInfo",
+   "pages/personal/personalInfo/personalInfo"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "娱叉",
+    "navigationBarTitleText": "培训班",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {

@@ -1,18 +1,19 @@
 // pages/trainingCourse/estimateAllInfo/estimateAllInfo.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    infoPro: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getEstimateAllInfo();
   },
 
   /**
@@ -28,39 +29,28 @@ Page({
   onShow: function () {
 
   },
+  getEstimateAllInfo: function () {
+    var that = this;
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+    var parameter = {
+      trainId: app.globalData.trainId,
+      evalType: 0
+    }
 
+    app.requestPost(that, app.globalData.urlApi.getEstimateAllInfo, parameter, function (res) {
+      if (res.data != 'null') {
+        var item = res.data;
+
+        that.setData({
+          infoPro: item
+        })  
+       console.log(item);
+      }
+    })
   },
+  btn_course_estimate: function (e) {
+    var index = e.currentTarget.dataset.index;
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    app.globalData.estmatePro = this.data.infoPro[index];
   }
 })

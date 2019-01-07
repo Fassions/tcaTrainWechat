@@ -2,27 +2,27 @@
 <view class='page_view'>
 
     <view class='title_view'>请输入邀请码</view>
-
+    <form bindsubmit='btn_submit'>
     <view class='wrui-view_display_flex_row input_view'>
         <view class='input'>
-            <input maxlength = '1'></input>
+            <input maxlength = '1' name = "input1"></input>
         </view>
 
         <view class='input'>
-            <input maxlength = '1'></input>
+            <input maxlength = '1' name = "input2"></input>
         </view>
 
         <view class='input'>
-            <input maxlength = '1'></input>
+            <input maxlength = '1' name = "input3"></input>
         </view>
 
         <view class='input'>
-            <input maxlength = '1'></input>
+            <input maxlength = '1' name = "input4"></input>
         </view>
     </view>
     <view style='height: 30rpx;'></view>
     <button class='publish' form-type='submit'>确定</button>
-
+    </form>
 
     <view class='wrui-view_display_flex_row f_x_view'>
         <view class='h_x'></view>
@@ -37,3 +37,22 @@
 
 
 <image src='../../images/homepage/sao.png' class='scan_image' catchtap='btn_scan'></image>
+
+
+<view class='phone_model_view' hidden='{{isPhone}}'>
+    <view class='title'>提示</view>
+    <view class='content'>未绑定手机号，是否绑定</view>
+    <view class='wrui-view_display_flex_row boto'>
+        <view class='cancel' hover-class='hover_class' catchtap='btn_cancel'>取消</view>
+        <button class='ok' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">确定</button>
+    </view>
+</view>
+
+
+<view class="commodityScreenClass" hidden='{{isPhone}}' bindtap='btn_shadow' style='opacity: 0.5;'></view>
+<view class="commodityScreenClass" hidden='{{isGetPhone}}' bindtap='btn_p' style='opacity: 0;z-index: 13;'></view>
+
+
+
+
+

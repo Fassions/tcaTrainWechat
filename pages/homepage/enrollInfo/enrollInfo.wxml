@@ -1,0 +1,74 @@
+<!--pages/homepage/enrollInfo/enrollInfo.wxml-->
+<view class='page_view'>
+  <form bindsubmit='{{isSubmit ? "btn_submit" : ""}}'>
+    <view class='head_view'>友好提示：请完善并确认下方的报名信息，这些信息将影响您培训记录的归档，一旦提交后无法修改</view>
+    <view style='height: 20rpx;'></view>
+    <view class='content_view'>
+
+      <view class='wrui-view_display_flex_row input_view'>
+        <view class='name'>真实姓名</view>
+        <view class='wrui-view_flex_1 input_name'>
+          <input placeholder='请输入' value='{{personInfo.name}}' disabled='true'></input>
+        </view>
+      </view>
+      <picker range="{{sexPro}}" value="{{sexIndex == -1 ? 0 : sexIndex}}" bindchange='sexChange'>
+        <view class='wrui-view_display_flex_row input_view'>
+          <view class='name'>性别</view>
+          <view class='wrui-view_flex_1 input_name'>
+            <block wx:if="{{sexIndex == -1}}">
+              <input placeholder='请输入' name="sex" value='{{personInfo.gender == 1 ? "男" : "女"}}' disabled='true'></input>
+            </block>
+            <block wx:else>
+              <input placeholder='请输入' name="sex" value='{{sexPro[sexIndex]}}' disabled='true'></input>
+            </block>
+          </view>
+          <image src='../../../images/homepage/right.png'></image>
+        </view>
+         </picker>
+        <picker range="{{familyPro}}" value="{{familyIndex == -1 ? 0 : familyIndex}}" bindchange='famulyChange'>
+          <view class='wrui-view_display_flex_row input_view'>
+            <view class='name'>民族</view>
+            <view class='wrui-view_flex_1 input_name'>
+              <input placeholder='请输入' name="m_z" value='{{familyIndex == -1 ? personInfo.familyName : familyPro[familyIndex]}}' disabled='true'></input>
+            </view>
+            <image src='../../../images/homepage/right.png'></image>
+          </view>
+        </picker>
+        <view class='wrui-view_display_flex_row input_view'>
+          <view class='name'>部门</view>
+          <view class='wrui-view_flex_1 input_name'>
+            <input placeholder='请输入' bindinput='inputb_m' name="b_m" value='{{inputb_m == "" ? personInfo.organizationName : ""}}'></input>
+          </view>
+          <image src='../../../images/homepage/right.png'></image>
+        </view>
+
+        <view class='wrui-view_display_flex_row input_view'>
+          <view class='name'>岗位</view>
+          <view class='wrui-view_flex_1 input_name'>
+            <input placeholder='请输入' bindinput='inputg_w' value='{{inputg_w == "" ? personInfo.postName : ""}}' name="g_w"></input>
+          </view>
+          <image src='../../../images/homepage/right.png'></image>
+        </view>
+
+        <view class='wrui-view_display_flex_row input_view'>
+          <view class='name'>公司</view>
+          <view class='wrui-view_flex_1 input_name'>
+            <input placeholder='请输入' bindinput='inputco' value='{{inputco == "" ? personInfo.companyName : ""}}' name="co"></input>
+          </view>
+          <image src='../../../images/homepage/right.png'></image>
+        </view>
+
+        <view class='wrui-view_display_flex_row input_view'>
+          <view class='name'>手机号</view>
+          <view class='wrui-view_flex_1 input_name'>
+            <input placeholder='请输入手机号' value='{{personInfo.mobile}}' disabled='true'></input>
+          </view>
+        </view>
+
+
+    </view>
+    <view style='height: 20rpx;'></view>
+    <button class='submit_bu' form-type='submit'>确认并提交</button>
+  </form>
+
+</view>

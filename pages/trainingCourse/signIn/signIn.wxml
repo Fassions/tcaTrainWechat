@@ -12,7 +12,7 @@
           <view class='not'>未签到</view>
        </view>
       <view class='times'>签到率{{signInRate}}%</view>
-      <view class='c_k_view'>点击查看</view>
+      <navigator class='c_k_view' url= '../signInPerson/signInPerson?info={{nowDate + apName}}&date={{dates}}&times={{ap}}'>点击查看</navigator>
        </block>
     </view>
     <image src='../../../images/tc/ba.png' class="back_image"></image>
@@ -31,7 +31,7 @@
 
   <view style='height: 16rpx;'></view>
 
-  <navigator class='wrui-view_display_flex_row person_type_view' url='../signInInfo/signInInfo' hover-class='hover_class'>
+  <navigator class='wrui-view_display_flex_row person_type_view' url='../signInInfo/signInInfo?info=1' hover-class='hover_class'>
     <!-- <image src='../../images/personal/s_j.png' class='type_head_image'></image> -->
     <view class='type_left_view'>签到详情</view>
     <image src='../../../images/tc/right.png' class='type_right_image'></image>

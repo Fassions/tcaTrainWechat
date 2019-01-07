@@ -10,7 +10,7 @@
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
-		"uglifyFileName": true
+		"uglifyFileName": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.3",
@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -67,7 +67,43 @@
 				{
 					"id": -1,
 					"name": "eInfo",
-					"pathName": "pages/trainingCourse/estimateInfo/estimateInfo"
+					"pathName": "pages/trainingCourse/estimateInfo/estimateInfo",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "s_e",
+					"pathName": "pages/trainingCourse/studentEstimateAll/studentEstimateAll",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "s_e s",
+					"pathName": "pages/trainingCourse/studentEstimate/studentEstimate",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "s_e one",
+					"pathName": "pages/trainingCourse/studentEstimateOne/studentEstimateOne",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "1",
+					"pathName": "pages/homepage/enroll/enroll",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "4",
+					"pathName": "pages/trainingCourse/studentSignInfo/studentSignInfo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "c",
+					"pathName": "pages/trainingCourse/trainingCourse"
 				}
 			]
 		}

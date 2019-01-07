@@ -1,1 +1,50 @@
 /* pages/trainingCourse/trainingCourse.wxss */
+
+
+
+
+
+.item_view{
+  background: white;margin-top: 20rpx;
+}
+.left_view{
+  background: #50acfb;
+}
+.year{
+  padding: 10rpx;font-size: 28rpx;color: white;
+}
+.month{
+  font-size: 32rpx;color: white;width: 50rpx;margin: 0 auto;text-align: center;
+}
+
+.right_view{
+  padding: 0 30rpx;
+}
+.title_view{
+  padding: 60rpx 0;font-size: 40rpx;color: #333;font-weight: bold;
+}
+.organizers_view{
+  font-size: 25rpx;color: #999;
+}
+.date_view{
+  font-size: 25rpx;color: #999;padding-bottom: 20rpx;
+}
+
+
+
+
+.input_view{
+  background: white;padding: 15rpx 30rpx;border-top: 1rpx solid #f2f2f2;position: fixed;top: 0;width: calc(100% - 60rpx);z-index: 10;
+}
+.type_input{
+  background: #f2f2f2;border-radius: 30rpx;
+}
+.icon_view{
+  margin: auto 20rpx;padding: 10rpx 0;
+}
+.input_n{
+  flex: 1;
+}
+.input_n input{
+  font-size: 28rpx;color: #666;line-height: 40rpx;padding: 10rpx 0;
+}

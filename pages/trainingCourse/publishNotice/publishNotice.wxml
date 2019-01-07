@@ -1,0 +1,12 @@
+<!--pages/trainingCourse/publishNotice/publishNotice.wxml-->
+<view class='page_view'>
+  <form bindsubmit='{{isPublish ? "" : "btn_submit"}}'>
+    <view class='textArea_view'>
+      <textarea placeholder='请输入公告' name="content"></textarea>
+    </view>
+
+
+    <view style='height: 100rpx;'></view>
+    <button class='bottom_view' form-type='submit'>发布</button>
+  </form>
+</view>

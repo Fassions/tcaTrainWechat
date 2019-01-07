@@ -1,0 +1,28 @@
+<!--pages/trainingCourse/studentEstimate/studentEstimate.wxml-->
+<view class='page_view'>
+
+      <navigator class='wrui-view_display_flex_row person_type_view' url='../studentEstimateAll/studentEstimateAll?startDate={{esLib.startDate}}&endDate={{esLib.endDate}}' hover-class='hover_class' catchtap='btn_all_es'>
+    <image src='../../../images/tc/manyi.png' class='type_head_image' style='width: 32rpx;height: 40rpx;padding: 0 4rpx;margin-right: 10rpx;'></image>
+    <view class='type_left_view'>
+        <view>整体满意度评估</view>
+        <view style='color: #666;font-size: 25rpx;'>测试培训班</view>
+    </view>
+  </navigator>
+
+   <navigator class='wrui-view_display_flex_row person_type_view' url='../studentEstimateOne/studentEstimateOne' hover-class='hover_class' catchtap='btn_course_es'>
+    <image src='../../../images/tc/kec.png' class='type_head_image' style='margin-right: 10rpx;'></image>
+    <view class='type_left_view'>
+        <view>培训班课程评估</view>
+        <view style='color: #666;font-size: 25rpx;'>测试培训班</view>
+    </view>
+  </navigator>
+
+  <navigator class='wrui-view_display_flex_row person_type_view' url='../signInInfo/signInInfo' hover-class='hover_class'>
+    <image src='../../../images/tc/xx.png' class='type_head_image' style='margin-right: 10rpx;'></image>
+    <view class='type_left_view'>
+        <view>个性化评估</view>
+        <view style='color: #666;font-size: 25rpx;'>测试培训班</view>
+    </view>
+  </navigator>
+
+</view>

@@ -1,11 +1,13 @@
 // pages/trainingCourse/notEstimatePerson/notEstimatePerson.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    assessId: 0
+    assessId: 0,
+    personPro: []
   },
 
   /**
@@ -26,30 +28,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getNotSignIn(this.data.assessId, 1, 0);
   },
-  getSignInInfo: function (id, pageInt, pageType, qu = 0, isL = true) {
+  getNotSignIn: function (id, pageInt, pageType, qu = 0, isL = true) {
     var that = this;
     var parameter = {
       trainId: app.globalData.trainId,
       current_page: pageInt,
-      signStatus: activeIndex,
-      assessId: id,
-      evalType: 0
+      evalType: 0,
+      assessId: id
     }
-    app.requestPost(that, app.globalData.urlApi.signInPerson, parameter, function (res) {
+    app.requestPost(that, app.globalData.urlApi.estimateNotAllSignIn, parameter, function (res) {
 
 
       if (res.data != '0') {
-        var item = app.trimKong(res.data).items;
-        var pageSize = that.trimKong(res.data).page;
-        console.log(item);
+        
+        var pageSize = res.data.page;
+        var item = [];
         if (pageSize.total_size > 0) {
-
-          // for (var i = 0; i < item.length; i++) {
-
-          //   item[i]['times'] = that.getTimeStampFormatDate(item[i].date);
-          // }
+          item = res.data.items;
 
           if (pageType == 1) {
             item = that.data.personPro.concat(item);

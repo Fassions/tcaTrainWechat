@@ -1,0 +1,31 @@
+<!--pages/trainingCourse/notice/notice.wxml-->
+<view class='page_view'>
+  
+  <block wx:if="{{noticePro}}">
+    <view class='wrui_view'>
+        <block wx:for = "{{noticePro}}">
+            <view class='notice_item_view'>
+                  <view class='wrui-view_display_flex_row item_head_view'>
+                      <image src='{{item.creator.iconUrl}}'></image>
+                      <view class='wrui-view_flex_1'><text style='color: #333;font-size: 32rpx;'>{{item.creator.name}}</text> {{item.creator.roleName}}</view>
+                      <view>{{}}</view>
+                  </view>
+                  <view class='item_content'>{{item.content}}</view>
+            </view>
+            <view style='height:20rpx;'></view>
+        </block>
+    </view>
+
+
+      <view style='height: 100rpx;'></view>
+  <navigator class='bottom_view' url='../publishNotice/publishNotice'>发布新公告</navigator>
+
+  </block>
+  <block wx:else>
+    <view class='wrui-view_display_flex_column not_notice_view'>
+      <image src='../../../images/homepage/k.png' mode="widthFix" style='width: 100%;'></image>
+      <view class='dec'>一件事情都没有</view>
+      <navigator class='bt' url='../publishNotice/publishNotice'>发布新公告</navigator>
+    </view>
+  </block>
+</view>

@@ -1,11 +1,16 @@
 // pages/trainingCourse/trainingCourse.js
+var reNowtime = require('../../utils/nowTime.js');
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    coursePro: [],
+    pageInt: 1,
+    pageSize: {},
+    keyWords: ''
   },
 
   /**
@@ -26,7 +31,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getCouseList(this.data.keyWords, 1, 0);
   },
 
   /**
@@ -54,7 +59,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    var pageInt = this.data.pageInt;
+    pageInt ++;
 
+    this.getCouseList(this.data.keyWords, pageInt, 1);
   },
 
   /**
@@ -62,5 +70,63 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getCouseList: function (keyWords, pageInt, pageType) { //查询是否开启签到接口
+    var that = this;
+    var parameter = {
+      userId: app.globalData.userId,
+      current_page: pageInt,
+      keyWords: keyWords
+    }
+    app.requestPost(that, app.globalData.urlApi.trainingCourseList, parameter, function (res) {
+
+
+      if (res.data != '0') {
+        var pageSize = res.data.page;
+        if (pageSize.total_size > 0 && res.data.items) {
+          var item = [];
+          item = res.data.items;
+
+          for(var i = 0; i < item.length; i++){
+            var dates = item[i].start_date.substring(item[i].start_date.indexOf('-') + 1, item[i].start_date.length);
+            item[i]['day'] = reNowtime.getTwoTimeData(item[i].start_date, item[i].end_date);
+            item[i]['year'] = item[i].start_date.substring(0, item[i].start_date.indexOf('-'));
+            item[i]['month'] = dates.substring(0, dates.indexOf('-'));
+          }
+          if (pageType == 1) {
+            item = that.data.coursePro.concat(item);
+          }
+
+        } else {
+          item = null;
+        }
+        that.data.pageInt = pageInt;
+
+        that.setData({
+          coursePro: item,
+          pageSize: pageSize
+        })
+      }
+    })
+  },
+  btn_couse_info:function(e){
+    var that = this;
+    var index = e.currentTarget.dataset.index;
+    var coursePro = that.data.coursePro;
+    app.globalData.trainId = coursePro[index].class_id;
+    if (coursePro[index].userRoleCode == '04'){
+      wx.navigateTo({
+        url: 'studentSignInfo/studentSignInfo',
+      })
+    }else{
+      wx.navigateTo({
+        url: 'signIn/signIn',
+      })
+    }
+
+  },
+  btn_input:function(e){
+    this.data.keyWords = e.detail.value;
+    this.getCouseList(e.detail.value, 1, 0);
   }
 })

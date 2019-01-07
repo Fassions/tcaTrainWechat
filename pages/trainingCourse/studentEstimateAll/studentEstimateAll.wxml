@@ -1,0 +1,58 @@
+<!--pages/trainingCourse/studentEstimateAll/studentEstimateAll.wxml-->
+<view class='page_view'>
+  <form bindsubmit='{{isSubmit ? "" : "btn_submit"}}'>
+  <view class='wrui-view_display_flex_row head_view'>
+    <image class='left_image'></image>
+    <view class='wrui-view_flex_1 wrui-view_display_flex_column right_view'>
+      <view>测试学员</view>
+      <view style='color: #999;font-size: 25rpx;'>{{startDate}}至{{endDate}} 共{{dayNum}}</view>
+    </view>
+  </view>
+  
+  <view class='wrui-view_display_flex_row x_view' style='padding: 30rpx;'>
+    <view class='name'>{{tempList[0].assessContent}}</view>
+    <view class='xx_image'>
+      <block wx:for="{{5}}">
+        <block wx:if = "{{tempList[0].num > index}}">
+              <image src='../../../images/tc/x1.png' catchtap='btn_x_image' data-index = "{{index}}" data-tempIndex = "{{0}}"></image>
+          </block>
+          <block wx:else>
+            <image src='../../../images/tc/x0.png' catchtap='btn_x_image' data-index = "{{index}}" data-tempIndex = "{{0}}"></image>
+          </block>
+      </block>
+    </view>
+    <view class='h_h'>{{tempList[0].numName}}</view>
+  </view>
+
+  <view class='textArea_view'>
+    <textarea placeholder='分享您的学习体会、意见或建议' name = "content"></textarea>
+  </view>
+  <view style='height: 16rpx;'></view>
+  <block wx:for="{{tempList}}" wx:for-item = "tempItem" wx:for-index = "tempIndex" wx:if = "{{tempIndex != 0}}">
+    <view class='wrui-view_display_flex_row x_view'>
+      <view class='name'>{{tempItem.assessContent}}</view>
+      <view class='xx_image'>
+        <block wx:for="{{5}}" wx:for-index = "xIndex">
+          <block wx:if = "{{tempItem.num > xIndex}}">
+              <image src='../../../images/tc/x1.png' catchtap='btn_x_image' data-index = "{{xIndex}}" data-tempIndex = "{{tempIndex}}"></image>
+          </block>
+          <block wx:else>
+            <image src='../../../images/tc/x0.png' catchtap='btn_x_image' data-index = "{{xIndex}}" data-tempIndex = "{{tempIndex}}"></image>
+          </block>
+        </block>
+      </view>
+      <view class='h_h'>{{tempItem.numName}}</view>
+    </view>
+  </block>
+
+  <view style='height: 100rpx;'></view>
+  <view class='wrui-view_display_flex_row bottom_view'>
+    <view class='wrui-view_display_flex_row check_view'>
+      <image src='../../../images/tc/y_w.png'></image>
+      <view>匿名</view>
+    </view>
+    <view class='wrui-view_flex_1'></view>
+    <button class='send_view' form-type = "submit">发表评估</button>
+  </view>
+  </form>
+</view>

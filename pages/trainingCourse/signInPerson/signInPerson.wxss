@@ -31,3 +31,11 @@
 .q_view>view{
   font-size: 28rpx;color: #333;margin: auto 0;
 }
+
+
+
+
+
+.bottom_view{
+  background: #50acfb;color: white;position: fixed;width: 100%;bottom: 0;left: 0;padding: 25rpx 0;font-size: 32rpx;text-align: center;
+}

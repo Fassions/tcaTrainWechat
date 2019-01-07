@@ -2,34 +2,73 @@
 <view class='page_view'>
   <view class='head_view'>
     <view class='name'>2018韩露测试</view>
-    <view class='person'>学员: 张丽丽</view>
+    <view class='person'>学员: {{personInfo.name}}</view>
   </view>
   <view class='wrui_view'>
     <block wx:for="{{historyPro}}">
       <view class='item_view'>
         <view class='dates_view'>{{item.dates.currentdate}}</view>
-        <block wx:if="{{item.anSignInfo != ' '}}">
-          <navigator class='wrui-view_display_flex_row person_type_view' url='../signInPerson/signInPerson?info={{item.dates.currentdate}}上午&date={{item.dates.currentday}}&times={{0}}' hover-class='hover_class'>
-            <view class='type_left_view'>上午</view>
-            <view class='type_right_view'>签到率：{{item.anSignInfo}}</view>
-            <image src='../../../images/tc/right.png' class='type_right_image'></image>
-          </navigator>
+        <block wx:if="{{info == 1}}">
+          <block wx:if="{{item.amSignInfo != ' '}}">
+            <navigator class='wrui-view_display_flex_row person_type_view' url='../signInPerson/signInPerson?info={{item.dates.currentdate}}上午&date={{item.dates.currentday}}&times={{0}}' hover-class='hover_class'>
+              <view class='type_left_view'>上午</view>
+              <view class='type_right_view'>签到率：{{item.amSignInfo}}</view>
+              <image src='../../../images/tc/right.png' class='type_right_image'></image>
+            </navigator>
+          </block>
+          <block wx:if="{{item.pmSignInfo != ' '}}">
+            <navigator class='wrui-view_display_flex_row person_type_view' url='../signInPerson/signInPerson?info={{item.dates.currentdate}}下午&date={{item.dates.currentday}}&times={{1}}' hover-class='hover_class'>
+              <view class='type_left_view'>下午</view>
+              <view class='type_right_view'>签到率：{{item.pmSignInfo}}</view>
+              <image src='../../../images/tc/right.png' class='type_right_image'></image>
+            </navigator>
+          </block>
+          <block wx:if="{{item.anSignInfo != ' '}}">
+            <navigator class='wrui-view_display_flex_row person_type_view' url='../signInPerson/signInPerson?info={{item.dates.currentdate}}晚上&date={{item.dates.currentday}}&times={{2}}' hover-class='hover_class'>
+              <view class='type_left_view'>晚上</view>
+              <view class='type_right_view'>签到率：{{item.anSignInfo}}</view>
+              <image src='../../../images/tc/right.png' class='type_right_image'></image>
+            </navigator>
+          </block>
         </block>
-        <block wx:if="{{item.pmSignInfo != ' '}}">
-          <navigator class='wrui-view_display_flex_row person_type_view' url='../signInPerson/signInPerson?info={{item.dates.currentdate}}下午&date={{item.dates.currentday}}&times={{1}}' hover-class='hover_class'>
-            <view class='type_left_view'>下午</view>
-            <view class='type_right_view'>签到率：{{item.pmSignInfo}}</view>
-            <image src='../../../images/tc/right.png' class='type_right_image'></image>
-          </navigator>
+        <block wx:else>
+          <block wx:if="{{item.amSignStatus == 0 || item.amSignStatus == 1 || item.amSignStatus == 2 || item.amSignStatus == 3}}">
+            <view class='wrui-view_display_flex_row person_type_view' hover-class='hover_class'>
+              <view class='type_left_view'>上午</view>
+              <view class='type_right_view'>
+                <block wx:if="{{item.amSignStatus == 0}}">未签到</block>
+                <block wx:elif="{{item.amSignStatus == 1}}">已代签</block>
+                <block wx:elif="{{item.amSignStatus == 2}}">已准假</block>
+                <block wx:elif="{{item.amSignStatus == 3}}">已签到</block>
+              </view>
+            </view>
+          </block>
+          <block wx:if="{{item.pmSignStatus == 0 || item.pmSignStatus == 1 || item.pmSignStatus == 2 ||item.pmSignStatus == 3}}">
+            <view class='wrui-view_display_flex_row person_type_view' hover-class='hover_class'>
+              <view class='type_left_view'>下午</view>
+              <view class='type_right_view'>
+                <block wx:if="{{item.pmSignStatus == 0}}">未签到</block>
+                <block wx:elif="{{item.pmSignStatus == 1}}">已代签</block>
+                <block wx:elif="{{item.pmSignStatus == 2}}">已准假</block>
+                <block wx:elif="{{item.pmSignStatus == 3}}">已签到</block>
+              </view>
+            </view>
+          </block>
+          <block wx:if="{{item.anSignStatus == 0 || item.anSignStatus == 1 || item.anSignStatus == 2 || item.anSignStatus == 3}}">
+            <view class='wrui-view_display_flex_row person_type_view' hover-class='hover_class'>
+              <view class='type_left_view'>晚上</view>
+
+              <view class='type_right_view'>
+                <block wx:if="{{item.anSignStatus == 0}}">未签到</block>
+                <block wx:elif="{{item.anSignStatus == 1}}">已代签</block>
+                <block wx:elif="{{item.anSignStatus == 2}}">已准假</block>
+                <block wx:elif="{{item.anSignStatus == 3}}">已签到</block>
+              </view>
+
+            </view>
+          </block>
         </block>
-        <block wx:if="{{item.amSignInfo != ' '}}">
-          <navigator class='wrui-view_display_flex_row person_type_view' url='../signInPerson/signInPerson?info={{item.dates.currentdate}}晚上&date={{item.dates.currentday}}&times={{2}}' hover-class='hover_class'>
-            <view class='type_left_view'>晚上</view>
-            <view class='type_right_view'>签到率：{{item.amSignInfo}}</view>
-            <image src='../../../images/tc/right.png' class='type_right_image'></image>
-          </navigator>
-        </block>
-      </view>
+    </view>
     </block>
     <block wx:if="{{pageSize.total_size == pageSize.page_size}}">
       <view class="weui-loadmore" hidden='{{isLoadMore}}' style='width: 100%;float: left;'>

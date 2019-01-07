@@ -60,11 +60,13 @@ Page({
 
 
       if (res.data != 'null') {
-        var item = app.trimKong(res.data);
+        var item = res.data;
         console.log(item);
 
-        for (var i = 0; i < item.courseList.length; i++){
-          item.courseList[i]['people_v'] = parseInt(item.courseList[i].assessPeopleNum / item.courseList[i].countPeople * 100);
+        if (item.courseList){
+          for (var i = 0; i < item.courseList.length; i++) {
+            item.courseList[i]['people_v'] = parseInt(item.courseList[i].assessPeopleNum / item.courseList[i].countPeople * 100);
+          }
         }
 
         item['train_v'] = parseInt(item.trainSutdentAssessNumber / item.trainPepoleNumber * 100);
@@ -118,7 +120,7 @@ Page({
     }
     app.requestPost(that, app.globalData.urlApi.estimateUpdateQu, parameter, function (res) {
       if (res.data != 'null') {
-        var item = app.trimKong(res.data);
+        var item = res.data;
 
         that.getEstimate();
       }
