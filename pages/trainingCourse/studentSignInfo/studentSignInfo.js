@@ -16,7 +16,16 @@ Page({
         to: '../studentSchedule/studentSchedule'
     }],
     ap: null,
-    dates: null
+    dates: null,
+    isFocus: true,
+    inputIndex: -1,
+    inputIndex1: -1,
+    inputIndex2: -1,
+    inputIndex3: -1,
+    inputName1: '',
+    inputName2: '',
+    inputName3: '',
+    inputName4: ''
   },
 
   /**
@@ -37,6 +46,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+
+    this.setData({
+      inputName1: '',
+      inputName2: '',
+      inputName3: '',
+      inputName4: ''
+    })
     this.getNowFormatDate();
   },
 
@@ -167,5 +183,57 @@ Page({
 
       })
     }
-  }
+  },
+  inputy1: function (e) {
+
+    if (e.detail.value != '') {
+      this.setData({
+        inputName1: e.detail.value,
+        inputIndex1: 1,
+      })
+    }
+
+  },
+  inputy2: function (e) {
+
+
+    if (e.detail.value != '') {
+      this.setData({
+        inputName2: e.detail.value,
+        inputIndex2: 2,
+      })
+    } else {
+      this.setData({
+        inputIndex: 0,
+      })
+    }
+  },
+  inputy3: function (e) {
+    if (e.detail.value != '') {
+      this.setData({
+        inputName3: e.detail.value,
+        inputIndex3: 3,
+      })
+    } else {
+      this.setData({
+        inputIndex1: 1,
+      })
+    }
+  },
+  inputy4: function (e) {
+
+    if (e.detail.value != '') {
+      this.setData({
+        inputName4: e.detail.value,
+        inputIndex: -1,
+        inputIndex2: -1,
+        inputIndex1: -1
+      })
+    } else {
+      this.setData({
+        inputIndex2: 2,
+      })
+    }
+
+  },
 })

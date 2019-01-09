@@ -11,7 +11,8 @@ Page({
     historyPro: [],
     pageSize: {},
     info: 0,
-    personInfo: {}
+    personInfo: {},
+    trainName: ''
   },
 
   /**
@@ -19,6 +20,10 @@ Page({
    */
   onLoad: function(options) {
     this.data.info = options.info;
+    this.setData({
+      trainName: app.globalData.trainName,
+      info: options.info
+    })
     
   },
 

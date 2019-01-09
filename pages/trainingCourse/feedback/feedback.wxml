@@ -1,0 +1,25 @@
+<!--pages/trainingCourse/feedback/feedback.wxml-->
+<view class='page_view'>
+    <view style='height: 1rpx;'></view>
+    <block wx:if = "{{feedbackPro}}">
+    <block wx:for = "{{feedbackPro}}">
+        <view class='wrui-view_display_flex_row item_view'>
+            <image src='{{item.iconUrl}}' class='left_image'></image>
+            <view class='right_view'>
+                <view>{{item.adviceContent}}</view>
+                <view style='color: #999;font-size: 28rpx;'>{{item.dates}}</view>
+            </view>
+        </view>
+    </block>
+    </block>
+    <block wx:else>
+      <view class='wrui-view_display_flex_column not_view' style='height:calc(100% - 101rpx);'>
+      <image src='../../../images/not_view.png' mode='widthFix'></image>
+      <view>暂无反馈</view>
+    </view>
+    </block>
+
+    <view style='height: 100rpx;'></view>
+  <navigator class='bottom_view' url = '../notEstimatePerson/notEstimatePerson?assessId={{assId}}'>查看未评估</navigator>
+    
+</view>

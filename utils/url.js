@@ -51,7 +51,8 @@ var urlObj = {
 
   enrollOkUrl: url + 'tca-wechat/student/commitTrainUserInfo',//确认报名
   reviseInfo: url + 'tca-wechat/student/updateUserinfo',//修改个人信息
-
+  cancelEnroll: url + 'tca-wechat/student/deleteTrainUserInfo',//取消报名
+  studentFeedback: url + 'tca-wechat/admin/adviceList',//管理员查看学员反馈
 
   publishNoticeUrl: url + 'tca-wechat/admin/noticePost',//发布公告
   noticeLibUrl: url + 'tca-wechat/admin/getNoticeList',//获取公告列表

@@ -5,9 +5,13 @@
 
 
 
+.feedback_view{
+  justify-content: left;
+}
 
-
-
+.feedback_view image{
+  width: 30rpx;height: 30rpx;vertical-align: middle;padding-right: 20rpx;
+}
 
 
 

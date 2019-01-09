@@ -85,7 +85,7 @@ Page({
     var courselist = that.data.courselist;
 
     var parameter = {
-      assessId: courselist[index].courseId,
+      assessId: courselist[index].id,
     }
 
     if (courselist[index].publishStatus){

@@ -122,9 +122,9 @@ App({
     networkNum: 0,//判断当前请求第几个接口
     systemInfo: null,
     isUserInfo: false,
-    imageUrl: 'https://api.wechat800.cn/huanbei_xcx/',
-    trainId: 'ff80808167ca34b10167cac2b63a0004',
-    userId: '5219499',
+    trainId: '',//ff80808167ca34b10167cac2b63a0004
+    trainName: '',//培训班名称
+    userId: '',//5219499
     estmatePro: {},
     appId: 'wx79b14d4085d2df9d',
     sessionKey: null,
@@ -182,7 +182,7 @@ App({
         console.log(res);
         if(res.data != -1){
           that.globalData.userId = res.data;
-          that.getOpenId(1);
+          //that.getOpenId(1);
         }else{
           that.getOpenId(0);
         }

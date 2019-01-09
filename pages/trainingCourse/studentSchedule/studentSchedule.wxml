@@ -1,27 +1,29 @@
 <!--pages/trainingCourse/studentSchedule/studentSchedule.wxml-->
 <view class='page_view'>
-    <view class='wrui_view'>
-        <block wx:for = "{{schedulePro}}">
-          <view style='height: 30rpx;'></view>
-          <view class='item_view'>
-              <view class='item_d_view'></view>
-              <view class='item_date'>{{item.dates.currentdate}}</view>
-              <view class='item_course_view'>
-                  <block wx:for = "{{1}}" wx:for-item="courseItem">
-                      <view class='course_name'>{{item.subject}}</view>
-                      <view class='course_author'>主讲人：{{item.teacher}}</view>
-                      <view class='wrui-view_display_flex_row course_time'>
-                          <view class='course_date'>讲课时间：{{item.start_time + '-' + item.end_time}}</view>
-                          <view class='wrui-view_display_flex_row course_adress'>
-                              <image src='../../../images/tc/d_d.png'></image>
-                              <view>{{item.location}}</view>
-                          </view>
-                      </view>
-                  </block>
+  <view class='wrui_view'>
+    <block wx:for="{{schedulePro}}">
+      <view style='height: 30rpx;'></view>
+      <view class='item_view'>
+        <view class='item_d_view'></view>
+        <view class='item_date'>{{item.dates.currentdate}}</view>
+        <view class='item_course_view'>
+          <block wx:for="{{1}}" wx:for-item="courseItem">
+            <view class='course_name'>{{item.subject}}</view>
+            <block wx:if="{{item.activity_type == '00'}}">
+              <view class='course_author'>主讲人：{{item.teacher}}</view>
+            </block>
+            <view class='wrui-view_display_flex_row course_time'>
+              <view class='course_date'>讲课时间：{{item.start_time + '-' + item.end_time}}</view>
+              <view class='wrui-view_display_flex_row course_adress'>
+                <image src='../../../images/tc/d_d.png'></image>
+                <view>{{item.location}}</view>
               </view>
-          </view>
-        </block>
-    </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
 
-    <view style='height: 30rpx;'></view>
+  <view style='height: 30rpx;'></view>
 </view>

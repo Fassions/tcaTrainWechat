@@ -13,12 +13,12 @@
                 <image src='{{item.userIcon}}' class='left_image'></image>
                 <view class='wrui-view_flex_1 name'>{{item.userName}}</view>
                 <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index = "{{index}}">
-                    <image src='../../../images/tc/not_w.png'></image>
+                    <image src='{{item.signStatus == 1 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
                     <view>代签</view>
                 </view>
 
                 <view class='wrui-view_display_flex_row q_view' style='padding-left: 30rpx;' catchtap='btn_select_z' data-index = "{{index}}">
-                    <image src='../../../images/tc/not_w.png'></image>
+                    <image src='{{item.signStatus == 2 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
                     <view>准假</view>
                 </view>
             </view>

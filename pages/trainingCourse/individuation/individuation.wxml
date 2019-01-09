@@ -1,0 +1,2 @@
+<!--pages/trainingCourse/individuation/individuation.wxml-->
+<web-view src = "{{individuationUrl}}"></web-view>

@@ -5,7 +5,7 @@
     <image class='type_head_image' src='../../../images/homepage/p_n.png' style='width: 60rpx;height: 60rpx;padding-right: 10rpx;'></image>
     <view class='type_left_view'>{{infoPro.assessTitle}}</view>
     <view class='type_right_view' style='font-size: 30rpx;color: #333;'>
-      <text style='color: #666;font-size: 28rpx;'>平均分 </text>{{infoPro.assessAVG}}</view>
+      <text style='color: #666;font-size: 28rpx;'>平均分 </text>{{infoPro.assessAVG ? infoPro.assessAVG : infoPro.averagePoint}}</view>
   </view>
 
   <view class='wrui_view'>

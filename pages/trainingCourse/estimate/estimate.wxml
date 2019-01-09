@@ -6,7 +6,7 @@
       <view class='f_num'>{{estimatePro.studentAssessAVG}}</view>
       <view class='dec'>平均分</view>
       <view style='height: 40rpx;'></view>
-      <navigator class='c_k_view' url='../estimateAllInfo/estimateAllInfo'>查看详情 ></navigator>
+      <navigator class='c_k_view' url='../estimateAllInfo/estimateAllInfo?assessId={{estimatePro.assessId}}'>查看详情 ></navigator>
     </view>
     <image src='../../../images/tc/pg.png' class="back_image"></image>
 

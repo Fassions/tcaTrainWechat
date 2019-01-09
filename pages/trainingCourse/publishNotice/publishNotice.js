@@ -69,14 +69,14 @@ Page({
             delta: 1
           })
 
-          this.setData({
+          that.setData({
             isPublish: false
           })
         },2000)
 
 
       }else{
-        this.setData({
+        that.setData({
           isPublish: false
         })
       }

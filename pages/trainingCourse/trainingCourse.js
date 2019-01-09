@@ -59,10 +59,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    var pageInt = this.data.pageInt;
-    pageInt ++;
+    if (this.data.pageSize.page_size * this.data.pageSize.current_page <= this.data.pageSize.total_size){
+      var pageInt = this.data.pageInt;
+      pageInt++;
 
-    this.getCouseList(this.data.keyWords, pageInt, 1);
+      this.getCouseList(this.data.keyWords, pageInt, 1);
+    }
+    
   },
 
   /**
@@ -114,6 +117,7 @@ Page({
     var index = e.currentTarget.dataset.index;
     var coursePro = that.data.coursePro;
     app.globalData.trainId = coursePro[index].class_id;
+    app.globalData.trainName = coursePro[index].class_name;
     if (coursePro[index].userRoleCode == '04'){
       wx.navigateTo({
         url: 'studentSignInfo/studentSignInfo',

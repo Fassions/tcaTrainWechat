@@ -8,7 +8,7 @@
   padding: 10rpx 0;background: white;
 }
 .wrui_row_view .left_image{
-  width: 200rpx;height: 150rpx;display: block;margin: auto 30rpx;border-radius: 20rpx;
+  width: 150rpx;height: 150rpx;display: block;margin: auto 30rpx;border-radius: 20rpx;
 }
 .wrui_row_view .right_view{
   margin: auto 0;

@@ -7,7 +7,16 @@ Page({
    */
   data: {
     isPhone: true,
-    isGetPhone: true
+    isGetPhone: true,
+    isFocus: true,
+    inputIndex: -1,
+    inputIndex1: -1,
+    inputIndex2: -1,
+    inputIndex3: -1,
+    inputName1: '',
+    inputName2: '',
+    inputName3: '',
+    inputName4: ''
   },
 
   /**
@@ -50,6 +59,8 @@ Page({
       }
     }
   })
+
+    
     
   },
 
@@ -64,7 +75,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      inputName1: '',
+      inputName2: '',
+      inputName3: '',
+      inputName4: ''
+    })
   },
 
   /**
@@ -102,9 +118,29 @@ Page({
 
   },
   btn_scan:function(){
+    var that = this;
     wx.scanCode({
       success:function(res){
-        
+        console.log(res);
+
+        var parameter = {
+          trainIndex: res.result
+        }
+        app.requestPost(that, app.globalData.urlApi.inviteCode, parameter, function (res) {
+          if (res.data != 'null') {
+
+            var tId = res.data.substring(1, res.data.length - 1);
+            app.globalData.trainId = tId;
+            wx.navigateTo({
+              url: 'enroll/enroll?id=' + tId,
+            })
+          }else{
+            wx.showModal({
+              title: '提示',
+              content: '邀请码错误',
+            })
+          }
+        })
       }
     })
   },
@@ -113,7 +149,6 @@ Page({
     console.log(22);
     var parameter = {
       unionId: app.globalData.unionId,
-      mobile: '18916807390'
     }
 
     app.requestPost(that, app.globalData.urlApi.getUserId, parameter, function (res) {
@@ -196,9 +231,15 @@ Page({
         if (res.data != 'null') {
 
           var tId = res.data.substring(1, res.data.length - 1);
+          app.globalData.trainId = tId;
             wx.navigateTo({
               url: 'enroll/enroll?id=' + tId,
             })
+        }else{
+          wx.showModal({
+            title: '提示',
+            content: '邀请码错误',
+          })
         }
       })
 
@@ -240,4 +281,57 @@ Page({
       that.getBindingPhone(res.data.phoneNumber);
     })
   },
+  inputy1:function(e){
+    
+    if (e.detail.value != ''){
+      this.setData({
+        inputName1: e.detail.value,
+        inputIndex1: 1,
+      })
+    }
+    
+  },
+  inputy2: function (e) {
+
+
+    if (e.detail.value != '') {
+      this.setData({
+        inputName2: e.detail.value,
+        inputIndex2: 2,
+      })
+    } else {
+      this.setData({
+        inputIndex: 0,
+      })
+    }
+  },
+  inputy3: function (e) {
+    if (e.detail.value != '') {
+      this.setData({
+        inputName3: e.detail.value,
+        inputIndex3: 3,
+      })
+    } else {
+      this.setData({
+        inputIndex1: 1,
+      })
+    }
+  },
+  inputy4: function (e) {
+
+    if (e.detail.value != '') {
+      this.setData({
+        inputName4: e.detail.value,
+        inputIndex: -1,
+        inputIndex2: -1,
+        inputIndex1: -1
+      })
+    }else{
+      this.setData({
+        inputIndex2: 2,
+      })
+    }
+    
+  },
+  
 })

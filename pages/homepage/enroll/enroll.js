@@ -33,7 +33,7 @@ Page({
   getTrainingInfo:function(id){
     var that = this;
     var parameter = {
-      trainId: 'ff80808167ca34b10167cac2b63a0004',
+      trainId: id,
       userId: app.globalData.userId
     }
     app.requestPost(that, app.globalData.urlApi.trainingInfo, parameter, function (res) {
@@ -45,4 +45,37 @@ Page({
       }
     })
   },
+  btn_cancel:function(){
+    var that = this;
+
+    wx.showModal({
+      title: '提示',
+      content: '是否确认取消报名？',
+      success:function(res){
+        if(res.confirm){
+          var parameter = {
+            trainId: that.data.id,
+            userId: app.globalData.userId
+          }
+          app.requestPost(that, app.globalData.urlApi.cancelEnroll, parameter, function (res) {
+            if (res.data == 'true') {
+
+                wx.showToast({
+                  title: '取消报名成功',
+                  duration: 2000
+                })
+
+                setTimeout(function(){
+
+                  wx.navigateBack({
+                    delta: 1
+                  })
+                },2000)
+            }
+          })
+
+        }
+      }
+    })
+  }
 })

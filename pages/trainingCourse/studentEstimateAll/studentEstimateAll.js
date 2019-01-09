@@ -11,7 +11,8 @@ Page({
     dayNum: 0,
     startDate: '',
     endDate: '',
-    isSubmit: false
+    isSubmit: false,
+    trainName: ''
   },
 
   /**
@@ -26,14 +27,16 @@ Page({
     var day = reNow.getTwoTimeData(startDate, endDate);
 
     for(var i = 0;i<tempList.length; i++){
-      tempList[i]['num'] = 4;
-      tempList[i]['numName'] = '好';
+      tempList[i]['num'] = -1;
+      tempList[i]['numName'] = '';
     }
+
     this.setData({
       tempList: tempList,
       dayNum: day,
       startDate: startDate,
-      endDate: endDate
+      endDate: endDate,
+      trainName: app.globalData.trainName 
     })
   },
 
@@ -55,6 +58,18 @@ Page({
     var tempIndex = e.currentTarget.dataset.tempindex;
     var tempList = this.data.tempList;
     tempList[tempIndex].num = index + 1;
+
+    if (index == 0) {
+      tempList[tempIndex].numName = '非常差';
+    } else if (index == 1) {
+      tempList[tempIndex].numName = '差';
+    } else if (index == 2) {
+      tempList[tempIndex].numName = '一般';
+    } else if (index == 3) {
+      tempList[tempIndex].numName = '好';
+    } else if (index == 4) {
+      tempList[tempIndex].numName = '非常好';
+    }
 
     this.setData({
       tempList: tempList

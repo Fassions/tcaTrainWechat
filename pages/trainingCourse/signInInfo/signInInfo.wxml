@@ -1,7 +1,7 @@
 <!--pages/trainingCourse/signInInfo/signInInfo.wxml-->
 <view class='page_view'>
   <view class='head_view'>
-    <view class='name'>2018韩露测试</view>
+    <view class='name'>{{trainName}}</view>
     <view class='person'>学员: {{personInfo.name}}</view>
   </view>
   <view class='wrui_view'>

@@ -1,52 +1,78 @@
 <!--pages/homepage/enroll/enroll.wxml-->
 <view class='page_view'>
-    <view style='height: 1rpx'></view>
+  <view style='height: 1rpx'></view>
 
-    <view class='title_view'>主办单位：{{trainInfo.trainOrganizers}}</view>
-    
-    <view class='wrui-view_display_flex_row wrui_row_view' style='padding-bottom: 30rpx;'>
-        <image src='' class='left_image'></image>
-        <view class='wrui-view_flex_1 right_view'>
-            <view class='name'>{{trainInfo.trainName}}</view>
-            <view class='date'>{{trainInfo.beginDate}}至{{trainInfo.endDate}} 共<text style='color: 50acfb;font-size: 30rpx;'>{{trainInfo.spendTime}}</text>天</view>
-            <view class='wrui-view_display_flex_row right_bo'>
-                <image src='../../../images/homepage/l_c.png'></image>
-                <view>{{trainInfo.trainAddress}}</view>
-            </view>
-        </view>
+  <view class='title_view'>主办单位：{{trainInfo.trainOrganizers}}</view>
+
+  <view class='wrui-view_display_flex_row wrui_row_view' style='padding-bottom: 30rpx;'>
+    <block wx:if="{{trainInfo.userChecked == 1}}">
+      <image src='../../../images/homepage/icon_shz.png' class='left_image'></image>
+    </block>
+    <block wx:else>
+      <block wx:if="{{trainInfo.trainStatus == 0}}">
+        <image src='../../../images/homepage/icon_wbm.png' class='left_image'></image>
+      </block>
+      <block wx:else>
+        <image src='../../../images/homepage/icon_ybm.png' class='left_image'></image>
+      </block>
+    </block>
+    <view class='wrui-view_flex_1 right_view'>
+      <view class='name'>{{trainInfo.trainName}}</view>
+      <view class='date'>{{trainInfo.beginDate}}至{{trainInfo.endDate}} 共
+        <text style='color: 50acfb;font-size: 30rpx;'>{{trainInfo.spendTime}}</text>天</view>
+      <view class='wrui-view_display_flex_row right_bo'>
+        <image src='../../../images/homepage/l_c.png'></image>
+        <view>{{trainInfo.trainAddress}}</view>
+      </view>
     </view>
+  </view>
 
-    <view style='height: 20rpx;'></view>
+  <view style='height: 20rpx;'></view>
 
-    <view class='pirce_view'>¥ {{trainInfo.trainTotalFee}} <text style='font-size: 30rpx;color: #333;font-weight: normal'>(食宿费:另计)</text></view>
-    
-    <view class='e_date'>报名截止时间: {{trainInfo.signupEndDate}}</view>
-    <view class='e_date'>报到时间: {{trainInfo.signupBegDate}}</view>
-    <view class='e_date' style='padding-bottom: 30rpx;'>计划人数: {{trainInfo.trainPepoleNumber}}</view>
+  <view class='pirce_view'>¥ {{trainInfo.trainTotalFee}}
+    <text style='font-size: 30rpx;color: #333;font-weight: normal'>(食宿费:另计)</text>
+  </view>
 
-    <view style='height: 20rpx;'></view>
+  <view class='e_date'>报名截止时间: {{trainInfo.signupEndDate}}</view>
+  <view class='e_date'>报到时间: {{trainInfo.signupBegDate}}</view>
+  <view class='e_date' style='padding-bottom: 30rpx;'>计划人数: {{trainInfo.trainPepoleNumber}}</view>
 
-    <view class='co_view'>
-        <view class='co_type_view'>培训对象: <text style='color: #999'>暂无</text></view>
-         <view class='co_type_view'>培训目的: <text style='color: #999'>暂无</text></view>
-         <view class='co_type_view'>培训内容: <text style='color: #999'>暂无</text></view>
-         <view class='co_type_view'>培训要求: <text style='color: #999'>暂无</text></view>
-         <view class='co_type_view'>培训说明: <text style='color: #999'>暂无</text></view>
-         <view class='co_type_view'>联系方式: {{trainInfo.contact}}</view>
+  <view style='height: 20rpx;'></view>
+
+  <view class='co_view'>
+    <view class='co_type_view'>培训对象:
+      <text style='color: #999'>暂无</text>
     </view>
+    <view class='co_type_view'>培训目的:
+      <text style='color: #999'>暂无</text>
+    </view>
+    <view class='co_type_view'>培训内容:
+      <text style='color: #999'>暂无</text>
+    </view>
+    <view class='co_type_view'>培训要求:
+      <text style='color: #999'>暂无</text>
+    </view>
+    <view class='co_type_view'>培训说明:
+      <text style='color: #999'>暂无</text>
+    </view>
+    <view class='co_type_view'>联系方式: {{trainInfo.contact}}</view>
+  </view>
 
 
 
 
-    <view style='height: 100rpx;'></view>
-  <block wx:if = "{{trainInfo.trainStatus == 0}}">
-    <navigator class='bottom_view' url='../enrollInfo/enrollInfo'>提交报名</navigator>
-  </block>
-  <block wx:elif = "{{trainInfo.trainStatus == 1}}">
-    <view class='bottom_view' style='color: #666;background: #ddd;'>已报名</view>
-  </block>
-  <block wx:if = "{{trainInfo.trainStatus == 2}}">
-    <view class='bottom_view' style='color: #666;background: #eee;'>报名结束</view>
-  </block>
-  
+  <view style='height: 100rpx;'></view>
+
+  <block wx:if="{{trainInfo.userChecked == 1}}">
+      <view class='bottom_view' style='color: #666;background: white;' hover-class='hover_class' catchtap='btn_cancel'>取消报名</view>
+    </block>
+    <block wx:else>
+      <block wx:if="{{trainInfo.trainStatus == 0}}">
+        <navigator class='bottom_view' url='../enrollInfo/enrollInfo'>提交报名</navigator>
+      </block>
+      <block wx:else>
+       <view class='bottom_view' style='color: #666;background: white;' hover-class='hover_class' catchtap='btn_cancel'>取消报名</view>
+      </block>
+    </block>
+
 </view>

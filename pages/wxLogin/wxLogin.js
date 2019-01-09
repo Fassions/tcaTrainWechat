@@ -73,8 +73,14 @@ Page({
       isUserInfo: true,
       userInfo: e.detail.userInfo
     })
-
-    that.saveOpenId(app.globalData.openId, e.detail.userInfo);
+    if (app.globalData.userId != ''){
+      wx.switchTab({
+        url: '../homepage/homepage',
+      })
+    }else{
+      that.getUnionid(e.detail);
+    }
+    
   },
   saveOpenId: function (openId, userInfo) {
     var that = this;
@@ -88,6 +94,22 @@ Page({
         wx.switchTab({
           url: '../homepage/homepage',
         })
+    })
+  },
+  getUnionid: function (res) {
+    var that = this;
+
+    var parameter = {
+      encryptedData: res.encryptedData,
+      sessionKey: app.globalData.sessionKey,
+      iv: res.iv,
+      type: 1
+    }
+    app.requestPost(that, app.globalData.urlApi.getUserInfoUrl, parameter, function (res) {
+      app.globalData.unionId = res.data.unionId;
+      wx.switchTab({
+        url: '../homepage/homepage',
+      })
     })
   },
 })

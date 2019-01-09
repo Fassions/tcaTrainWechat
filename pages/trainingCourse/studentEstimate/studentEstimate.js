@@ -13,7 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getStudentEs();
+    
   },
 
   /**
@@ -27,7 +27,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getStudentEs();
   },
   getStudentEs:function(){
     var that = this;
@@ -37,6 +37,19 @@ Page({
     }
     app.requestPost(that, app.globalData.urlApi.getStudentEstimateLib, parameter, function (res) {
       if (res.data != '0') {
+        var item = res.data;
+
+        if (item.assessList){
+          for (var i = 0; i < item.assessList.length; i++){
+
+            if (item.assessList[i].assessType == 1){
+              item['ass1'] = 1;
+            }
+            if (item.assessList[i].assessType == 0){
+              item['ass2'] = 2;
+            }
+          }
+        }
        that.setData({
          esLib: res.data
        })

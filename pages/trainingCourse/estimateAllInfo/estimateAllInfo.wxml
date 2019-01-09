@@ -1,16 +1,27 @@
 <!--pages/trainingCourse/estimateAllInfo/estimateAllInfo.wxml-->
 <view class='page_view'>
   <view style='height: 1rpx;'></view>
-  <navigator class='wrui-view_display_flex_row person_type_view' url='../estimateInfo/estimateInfo' hover-class='hover_class' catchtap='btn_course_estimate' data-index = "{{0}}">
+  <navigator class='wrui-view_display_flex_row person_type_view' url='../estimateInfo/estimateInfo' hover-class='hover_class' catchtap='btn_course_estimate' data-index="{{0}}">
     <view class='type_left_view'>{{infoPro[0].assessTitle}}</view>
     <view class='type_right_view'>{{infoPro[0].assessAVG}}</view>
     <image src='../../../images/tc/right.png' class='type_right_image'></image>
   </navigator>
 
-  <navigator class='wrui-view_display_flex_row person_type_view' url='../signInPerson/signInPerson' hover-class='hover_class'>
+  <navigator class='wrui-view_display_flex_row person_type_view' url='../feedback/feedback?id={{assessId}}' hover-class='hover_class'>
     <view class='type_left_view'>
       <view>学员反馈</view>
-      <view style='font-size: 25rpx;color: #666;'>暂无</view>
+       
+      <view style='font-size: 25rpx;color: #666;' class='wrui-view_display_flex_row feedback_view'>
+        <block wx:if = "{{feedbackPro}}">
+        <block wx:for='{{feedbackPro}}'>
+            <image src='{{item.iconUrl}}'></image>
+            <!-- <view>{{item.}}</view> -->
+        </block>
+        </block>
+        <block wx:else>
+          暂无
+        </block>
+      </view>
     </view>
     <view class='type_right_view'>更多</view>
     <image src='../../../images/tc/right.png' class='type_right_image'></image>
@@ -18,8 +29,8 @@
 
   <view style='height: 16rpx;'></view>
 
-  <block wx:for="{{infoPro}}" wx:if = "{{index > 0}}">
-    <navigator class='wrui-view_display_flex_row person_type_view' url="../estimateInfo/estimateInfo" catchtap='btn_course_estimate' data-index = "{{index}}" hover-class='hover_class'> 
+  <block wx:for="{{infoPro}}" wx:if="{{index > 0}}">
+    <navigator class='wrui-view_display_flex_row person_type_view' url="../estimateInfo/estimateInfo" catchtap='btn_course_estimate' data-index="{{index}}" hover-class='hover_class'>
       <view class='type_left_view'>{{item.assessTitle}}</view>
       <view class='type_right_view'>{{item.assessAVG}}</view>
       <image src='../../../images/tc/right.png' class='type_right_image'></image>

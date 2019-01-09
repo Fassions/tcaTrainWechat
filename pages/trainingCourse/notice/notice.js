@@ -7,14 +7,15 @@ Page({
    */
   data: {
     noticePro: [],
-    pageInt: 1
+    pageInt: 1,
+    pageSize: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getNoticeData(1, 0)
+    
   },
 
   /**
@@ -28,12 +29,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getNoticeData(1, 0)
   },
   onReachBottom:function(){
-    var pageInt = this.data.pageInt;
-    pageInt ++;
-    this.getNoticeData(pageInt, 1);
+    if (this.data.pageSize.page_size * this.data.pageSize.current_page >= this.data.pageSize.total_size){
+      var pageInt = this.data.pageInt;
+      pageInt++;
+      this.getNoticeData(pageInt, 1);
+    }
+    
   },
   getNoticeData:function(pageInt, pageType){
     var that = this;

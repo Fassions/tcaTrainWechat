@@ -20,7 +20,9 @@
    "pages/wxLogin/wxLogin",
    "pages/homepage/enroll/enroll",
    "pages/homepage/enrollInfo/enrollInfo",
-   "pages/personal/personalInfo/personalInfo"
+   "pages/personal/personalInfo/personalInfo",
+   "pages/trainingCourse/individuation/individuation",
+   "pages/trainingCourse/feedback/feedback"
   ],
   "window":{
     "backgroundTextStyle":"light",

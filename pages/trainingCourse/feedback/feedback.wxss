@@ -1,0 +1,20 @@
+/* pages/trainingCourse/feedback/feedback.wxss */
+
+.item_view{
+  padding: 20rpx 0;background: white;border-bottom: 1rpx solid #f2f2f2;
+}
+.left_image{
+  width: 100rpx;height: 100rpx;display: block;margin: auto 30rpx;border-radius: 50%;
+}
+.right_view{
+  flex: 1;
+}
+.right_view>view{
+  color: #333;font-size: 30rpx;
+}
+
+
+
+.bottom_view{
+  background: #50acfb;color: white;position: fixed;width: 100%;bottom: 0;left: 0;padding: 25rpx 0;font-size: 32rpx;text-align: center;
+}
