@@ -123,24 +123,14 @@ Page({
       success:function(res){
         console.log(res);
 
-        var parameter = {
-          trainIndex: res.result
-        }
-        app.requestPost(that, app.globalData.urlApi.inviteCode, parameter, function (res) {
-          if (res.data != 'null') {
+        var result = res.result.substring(res.result.indexOf('=') + 1, res.result.length);
+        console.log(result);
 
-            var tId = res.data.substring(1, res.data.length - 1);
-            app.globalData.trainId = tId;
-            wx.navigateTo({
-              url: 'enroll/enroll?id=' + tId,
-            })
-          }else{
-            wx.showModal({
-              title: '提示',
-              content: '邀请码错误',
-            })
-          }
+        app.globalData.trainId = result;
+        wx.navigateTo({
+          url: 'enroll/enroll?id=' + result,
         })
+        
       }
     })
   },

@@ -85,9 +85,22 @@ Page({
     })
 
     for (var i = 0; i < tempList.length; i++){
+
+      if (tempList[i].num == -1){
+        wx.showToast({
+          title: '请给' + tempList[i].assessContent + '评分',
+          icon: 'none',
+          duration: 2000
+        })
+        that.setData({
+          isSubmit: false
+        })
+        console.log(11);
+        return ;
+      }
       var tempObj = {};
       tempObj['templateId'] = tempList[i].id;
-      tempObj['assessScore'] = tempList[i].num;
+      tempObj['assessScore'] = tempList[i].num + 1;
       
       if (i == 0){
         tempObj['isScore'] = true;
@@ -97,6 +110,7 @@ Page({
 
       tempPro.push(tempObj);
     }
+    console.log(tempPro);
 
     var parameter = {
       userId: app.globalData.userId,

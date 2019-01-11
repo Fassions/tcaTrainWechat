@@ -1,9 +1,9 @@
 <!--pages/trainingCourse/studentEstimateOne/studentEstimateOne.wxml-->
 <view class='page_view'>
   <view style='height: 1rpx;'></view>
-  <block wx:if = "{{info == 1 ? esLib.ass1 : esLib.ass2}}">
-  <block wx:for="{{assessList}}" wx:for-item="tempItem" wx:for-index="tempIndex" wx:if="{{tempItem.assessType == info}}">
-    <view class='wrui-view_display_flex_row person_type_view' url='../studentEstimateAll/studentEstimateAll' hover-class='hover_class' catchtap='{{info == 1 ? "btn_g_x_h" : "btn_x_s"}}' data-index = "{{tempIndex}}">
+  <block wx:if = "{{info == 1 || atype != 0 ? esLib.ass1 : esLib.ass2}}">
+  <block wx:for="{{assessList}}" wx:for-item="tempItem" wx:for-index="tempIndex" wx:if="{{atype == 0 ? tempItem.assessType == info : tempItem.assessType == 3}}">
+    <view class='wrui-view_display_flex_row person_type_view' url='../studentEstimateAll/studentEstimateAll' hover-class='hover_class' catchtap='{{info == 1 || atype != 0 ? "btn_g_x_h" : "btn_x_s"}}' data-index = "{{tempIndex}}">
       <image src='../../../images/tc/manyi.png' class='type_head_image' style='width: 32rpx;height: 40rpx;padding: 0 4rpx;margin-right: 10rpx;'></image>
       <view class='type_left_view'>
         <view>{{tempItem.courseName}}</view>

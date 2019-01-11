@@ -39,3 +39,8 @@
 .send_view{
   font-size: 35rpx;background: #50acfb;color: white;padding: 25rpx 30rpx;
 }
+
+
+.hover_358dda_class{
+  background: #358dda !important;
+}

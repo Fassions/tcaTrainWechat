@@ -114,7 +114,7 @@ Page({
           console.log(item);
           var signInRate = 0;
           if ((item.notSignPeople + item.shouldSignPeople) != 0){
-            signInRate = parseInt(item.notSignPeople / (item.notSignPeople + item.shouldSignPeople) * 100);
+            signInRate = parseInt((item.shouldSignPeople - item.notSignPeople) / item.shouldSignPeople * 100);
           }
          
           that.setData({
@@ -138,7 +138,7 @@ Page({
       if (res.data != '0') {
         var item = res.data;
         console.log(item);
-        var signInRate = parseInt(item.notSignPeople / (item.notSignPeople + item.shouldSignPeople) * 100);
+        var signInRate = parseInt((item.shouldSignPeople - item.notSignPeople) / item.shouldSignPeople * 100);
 
         that.setData({
           signPsw: item.code.split(""),

@@ -59,10 +59,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    if (this.data.pageSize.page_size * this.data.pageSize.current_page <= this.data.pageSize.total_size) {
     var pageInt = this.data.pageInt;
     pageInt++;
 
     this.getCouseList(this.data.keyWords, pageInt, 1);
+    }
   },
 
   /**
@@ -113,10 +115,19 @@ Page({
     var that = this;
     var index = e.currentTarget.dataset.index;
     var coursePro = that.data.coursePro;
-    app.globalData.trainId = coursePro[index].trainId;
-    wx.navigateTo({
-      url: 'personalInfo/personalInfo',
-    })
+    app.globalData.trainId = coursePro[index].class_id;
+    app.globalData.trainInfo = coursePro[index];
+
+    if (coursePro[index].user_checked == 1) {
+      wx.navigateTo({
+        url: '../homepage/enroll/enroll?id=' + coursePro[index].class_id,
+      })
+    } else {
+      wx.navigateTo({
+        url: 'personalInfo/personalInfo',
+      })
+    }
+    
   },
   btn_input: function(e) {
     this.data.keyWords = e.detail.value;

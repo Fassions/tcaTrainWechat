@@ -41,19 +41,19 @@
 
   <view class='co_view'>
     <view class='co_type_view'>培训对象:
-      <text style='color: #999'>暂无</text>
+      <text style='color: #999'>{{trainInfo.trainObject}}</text>
     </view>
     <view class='co_type_view'>培训目的:
-      <text style='color: #999'>暂无</text>
+      <text style='color: #999'>{{trainInfo.trainPurpose}}</text>
     </view>
     <view class='co_type_view'>培训内容:
-      <text style='color: #999'>暂无</text>
+      <text style='color: #999'>{{trainInfo.trainContent}}</text>
     </view>
     <view class='co_type_view'>培训要求:
-      <text style='color: #999'>暂无</text>
+      <text style='color: #999'>{{trainInfo.trainClaim}}</text>
     </view>
     <view class='co_type_view'>培训说明:
-      <text style='color: #999'>暂无</text>
+      <text style='color: #999'>{{trainInfo.trainExplain}}</text>
     </view>
     <view class='co_type_view'>联系方式: {{trainInfo.contact}}</view>
   </view>

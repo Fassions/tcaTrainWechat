@@ -69,7 +69,7 @@ Page({
           }
         }
 
-        item['train_v'] = parseInt(item.trainSutdentAssessNumber / item.trainPepoleNumber * 100);
+        item['train_v'] = parseInt(item.trainSutdentAssessNumber / item.trainStudentNumber * 100);
 
         that.setData({
           courselist: item.courseList,
@@ -130,5 +130,9 @@ Page({
     var index = e.currentTarget.dataset.index;
 
     app.globalData.estmatePro = this.data.courselist[index];
+
+    wx.navigateTo({
+      url: '../estimateInfo/estimateInfo',
+    })
   }
 })

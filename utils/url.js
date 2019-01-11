@@ -60,7 +60,13 @@ var urlObj = {
 
   gotoTraining: url + 'tca-wechat/common/newClassInfo',//进入指定培训班
 
-  
+  getTrainStatus: url + 'tca-wechat/common/getTrainProgress',//查看培训班状态(历史培训班)
+
+
+
+
+
+  publishNotperonalMessage: url + 'tca-wechat/admin/sendMsgForUnassessed',//一、未评估学员消息推送
 
 
   ossImageUrl: 'http://yucha.oss-cn-beijing.aliyuncs.com/',

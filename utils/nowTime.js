@@ -21,51 +21,57 @@ function timeDifference(startTime, endTime) {
     var timeObj = '1';
     return timeObj;
   }
-  var years = Math.floor(nowTime / (365 * 3600 * 1000 * 24));
-  var leave01 = nowTime % (365 * 3600 * 1000 * 24);
-  var months = Math.floor(leave01 / (30 * 3600 * 1000 * 24));
-  var leave0 = leave01 % (30 * 3600 * 1000 * 24);
+  // var years = Math.floor(nowTime / (365 * 3600 * 1000 * 24));
+  // var leave01 = nowTime % (365 * 3600 * 1000 * 24);
+  // var months = Math.floor(leave01 / (30 * 3600 * 1000 * 24));
+  // var leave0 = leave01 % (30 * 3600 * 1000 * 24);
 
-  var days = Math.floor(leave0 / (3600 * 1000 * 24));
+  var days = Math.floor(nowTime / (3600 * 1000 * 24));
 
-  var leave1 = leave0 % (3600 * 1000 * 24);
+  // var leave1 = leave0 % (3600 * 1000 * 24);
 
-  var hours = Math.floor(leave1 / (3600 * 1000));
+  // var hours = Math.floor(leave1 / (3600 * 1000));
 
-  //计算相差分钟数  
-  var leave2 = leave1 % (3600 * 1000);        //计算小时数后剩余的毫秒数  
-  var minutes = Math.floor(leave2 / (60 * 1000));
+  // //计算相差分钟数  
+  // var leave2 = leave1 % (3600 * 1000);        //计算小时数后剩余的毫秒数  
+  // var minutes = Math.floor(leave2 / (60 * 1000));
 
-  //计算相差秒数  
-  var leave3 = leave2 % (60 * 1000);      //计算分钟数后剩余的毫秒数  
-  var seconds = Math.round(leave3 / 1000);
+  // //计算相差秒数  
+  // var leave3 = leave2 % (60 * 1000);      //计算分钟数后剩余的毫秒数  
+  // var seconds = Math.round(leave3 / 1000);
 
-  var timeObj = {};
-  timeObj['hours'] = hours;
-  timeObj['minutes'] = minutes;
-  timeObj['seconds'] = seconds;
-  if (years > 0) {
-    return years + '年';
-  } else {
-    if (months > 0) {
-      return months + '月'
-    } else {
-      if (days > 0) {
-        return days + '';
-      } else {
-
-        if (hours > 0) {
-          return hours + '小时';
-        } else {
-          if (minutes > 0) {
-            return minutes + '分钟';
-          } else {
-            return '1';
-          }
-        }
-      }
-    }
+  // var timeObj = {};
+  // timeObj['hours'] = hours;
+  // timeObj['minutes'] = minutes;
+  // timeObj['seconds'] = seconds;
+  if(days > 0){
+    return days + '';
+  }else{
+    return '1';
   }
+  
+  // if (years > 0) {
+  //   return years + '年';
+  // } else {
+  //   if (months > 0) {
+  //     return months + '月'
+  //   } else {
+  //     if (days > 0) {
+  //       return days + '';
+  //     } else {
+
+  //       if (hours > 0) {
+  //         return hours + '小时';
+  //       } else {
+  //         if (minutes > 0) {
+  //           return minutes + '分钟';
+  //         } else {
+  //           return '1';
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
 }
 

@@ -118,15 +118,23 @@ Page({
     var coursePro = that.data.coursePro;
     app.globalData.trainId = coursePro[index].class_id;
     app.globalData.trainName = coursePro[index].class_name;
-    if (coursePro[index].userRoleCode == '04'){
+
+    if (coursePro[index].user_checked == 1){
       wx.navigateTo({
-        url: 'studentSignInfo/studentSignInfo',
+        url: '../homepage/enroll/enroll?id=' + coursePro[index].class_id,
       })
     }else{
-      wx.navigateTo({
-        url: 'signIn/signIn',
-      })
+      if (coursePro[index].userRoleCode == '04') {
+        wx.navigateTo({
+          url: 'studentSignInfo/studentSignInfo',
+        })
+      } else {
+        wx.navigateTo({
+          url: 'signIn/signIn',
+        })
+      }
     }
+    
 
   },
   btn_input:function(e){

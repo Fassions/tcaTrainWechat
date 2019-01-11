@@ -1,5 +1,4 @@
 // pages/personal/personalInfo/personalInfo.js
-var reNowtime = require('../../../utils/nowTime.js');
 var app = getApp();
 Page({
 
@@ -7,46 +6,49 @@ Page({
    * 页面的初始数据
    */
   data: {
-    personInfo: {}
+    personInfo: {},
+    trainInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+
+    this.setData({
+      trainInfo: app.globalData.trainInfo
+    })
     this.getPersonalInfo();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
-  getPersonalInfo:function(){
+  getPersonalInfo: function() {
     var that = this;
     var parameter = {
       userId: app.globalData.userId,
       trainId: app.globalData.trainId
     }
-    app.requestPost(that, app.globalData.urlApi.gotoTraining, parameter, function (res) {
+    app.requestPost(that, app.globalData.urlApi.getTrainStatus, parameter, function(res) {
 
 
-      // if (res.data != '0') {
-      //     var item = res.data;
-      //   item['day'] = reNowtime.getTwoTimeData(item.start_date, item.end_date);
-      //   that.setData({
-      //     personInfo: item
-      //   })
-
-      // }
+      if (res.data != '0') {
+        var item = res.data;
+        that.setData({
+          personInfo: item
+        })
+      }
     })
   }
 

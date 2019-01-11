@@ -3,21 +3,21 @@
   <view style='height: 1rpx;'></view>
   <view class='wrui-view'>
     <block wx:for="{{personPro}}">
-      <view class='wrui-view_display_flex_row person_type_view'  hover-class='hover_class' style='padding: 30rpx;'>
+      <view class='wrui-view_display_flex_row person_type_view'  hover-class='hover_class' style='padding: 30rpx;' catchtap='btn_check' data-index = "{{index}}">
         <image class='type_head_image' src='{{item.iconUrl}}' style='width: 60rpx;height: 60rpx;padding-right: 10rpx;'></image>
         <view class='type_left_view'>{{item.name}}</view>
-        <image src='../../../images/tc/y_w.png' class='type_right_image' style='width: 50rpx;height: 50rpx;'></image>
+        <image src='{{item.isCheck ? "../../../images/tc/y_w.png" : "../../../images/tc/nw.png"}}' class='type_right_image' style='width: 50rpx;height: 50rpx;'></image>
       </view>
     </block>
   </view>
 
   <view style='height: 100rpx;'></view>
   <view class='wrui-view_display_flex_row bottom_view'>
-    <view class='wrui-view_display_flex_row check_view'>
-      <image src='../../../images/tc/y_w.png'></image>
+    <view class='wrui-view_display_flex_row check_view' catchtap='btn_all_check'>
+      <image src='{{isCheck ? "../../../images/tc/y_w.png" : "../../../images/tc/nw.png"}}'></image>
       <view>全部</view>
     </view>
     <view class='wrui-view_flex_1'></view>
-    <view class='send_view'>发送提醒</view>
+    <view class='send_view' catchtap='btn_send' hover-class='hover_358dda_class'>发送提醒</view>
   </view>
 </view>

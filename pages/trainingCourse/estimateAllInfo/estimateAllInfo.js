@@ -47,6 +47,10 @@ Page({
       if (res.data != 'null') {
         var item = res.data;
 
+        for(var i = 0; i < item.length; i++){
+          item[i].id = that.data.assessId;
+        }
+
         that.setData({
           infoPro: item
         })  
@@ -58,6 +62,10 @@ Page({
     var index = e.currentTarget.dataset.index;
 
     app.globalData.estmatePro = this.data.infoPro[index];
+
+    wx.navigateTo({
+      url: '../estimateInfo/estimateInfo',
+    })
   },
   getStudentFeedback:function(){
     var that = this;

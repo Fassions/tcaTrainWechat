@@ -173,6 +173,13 @@ Page({
             icon: 'none',
             duration: 2000
           })
+
+          that.setData({
+            inputName1: '',
+            inputName2: '',
+            inputName3: '',
+            inputName4: ''
+          })
         }else{
           wx.showToast({
             title: '签到失败',

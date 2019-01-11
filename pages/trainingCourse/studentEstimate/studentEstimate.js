@@ -48,6 +48,10 @@ Page({
             if (item.assessList[i].assessType == 0){
               item['ass2'] = 2;
             }
+
+            if (item.assessList[i].assessType == 3) {
+              item['ass3'] = 3;
+            }
           }
         }
        that.setData({
@@ -57,9 +61,26 @@ Page({
     })
   },
   btn_all_es:function(){
+
     app.globalData.tempList = this.data.esLib.tempList;
+
+    wx.navigateTo({
+      url: '../studentEstimateAll/studentEstimateAll?startDate=' + this.data.esLib.startDate + '&endDate=' + this.data.esLib.endDate,
+    })
   },
-  btn_course_es: function () {
+  btn_course_es: function (e) {
+    var info = e.currentTarget.dataset.info;
     app.globalData.assessList = this.data.esLib.assessList;
+
+    if (info == 3){
+      wx.navigateTo({
+        url: '../studentEstimateOne/studentEstimateOne?atype=1&info=' + info,
+      })
+    }else{
+      wx.navigateTo({
+        url: '../studentEstimateOne/studentEstimateOne?info=' + info,
+      })
+    }
+   
   }
 })

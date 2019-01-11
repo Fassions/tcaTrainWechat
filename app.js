@@ -130,7 +130,8 @@ App({
     sessionKey: null,
     unionId: null,
     assessList: null,
-    tempList: null
+    tempList: null,
+    trainInfo: {}
   },
   saveOpenId: function (openId, userInfo = null) {
     var that = this;

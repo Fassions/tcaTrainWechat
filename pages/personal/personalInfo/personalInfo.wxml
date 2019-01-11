@@ -1,13 +1,109 @@
 <!--pages/personal/personalInfo/personalInfo.wxml-->
 <view class='page_view'>
-    <view class='head_view'>
-        <view class='title_view'></view>
-        <view class='z_b'></view>
-        <view class='date'></view>
-    </view>
+  <view class='head_view'>
+    <view class='title_view'>{{trainInfo.class_name}}</view>
+    <view class='organizers_view'>主办单位：{{trainInfo.org_name}}</view>
+    <view class='date_view'>{{trainInfo.start_date + '至' + trainInfo.end_date}} 共
+      <text style='color: #50acfb'>{{trainInfo.day}}</text> 天</view>
+  </view>
 
-    <view class='content_view'>
-        
-    </view>
+  <view style='height: 30rpx;'></view>
+
+  <view class='content_view'>
+    <block wx:if="{{trainInfo.userRoleCode == '04' || trainInfo.userRoleCode == '06'}}">
+    <block wx:if = "{{personInfo.signRate != -1}}">
+      <view class='wrui-view_display_flex_row item_view'>
+        <view class='wrui-view_flex_1 name'>签到率 {{personInfo.signRate ? personInfo.signRate * 100 : 0}}%</view>
+        <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">        
+          <view style='{{personInfo.signRate * 100 > 50 ? "color: #50acfb" : ""}}'>{{personInfo.signRate * 100 > 50 ? '已完成' : '未完成'}}</view>
+          <image src='{{personInfo.signRate * 100 > 50 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
+        </view>
+      </view>
+    </block>  
+    <block wx:if = "{{personInfo.trainAssessStatus != -1}}">
+      <view class='wrui-view_display_flex_row item_view'>
+        <view class='wrui-view_flex_1 name'>整体满意度评估</view>
+        <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">         <view style='{{personInfo.trainAssessStatus == 1 ? "color: #50acfb" : ""}}'>{{personInfo.trainAssessStatus == 1 ? '已完成' : '未完成'}}</view>
+          <image src='{{personInfo.trainAssessStatus == 1 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
+        </view>
+      </view>
+    </block>
+
+    <block wx:if = "{{personInfo.trainCourseAssessStatus != -1}}">
+      <view class='wrui-view_display_flex_row item_view'>
+        <view class='wrui-view_flex_1 name'>培训班课程评估</view>
+        <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">         <view style='{{personInfo.trainCourseAssessStatus == 1 ? "color: #50acfb" : ""}}'>{{personInfo.trainCourseAssessStatus == 1 ? '已完成' : '未完成'}}</view>
+          <image src='{{personInfo.trainCourseAssessStatus == 1 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
+        </view>
+      </view>
+    </block>
+
+
+    <block wx:if = "{{personInfo.trainQuestionnaireStatus != -1}}">
+      <view class='wrui-view_display_flex_row item_view'>
+        <view class='wrui-view_flex_1 name'>个性化评估</view>
+        <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">         <view style='{{personInfo.trainQuestionnaireStatus == 1 ? "color: #50acfb" : ""}}'>{{personInfo.trainQuestionnaireStatus == 1 ? '已完成' : '未完成'}}</view>
+          <image src='{{personInfo.trainQuestionnaireStatus == 1 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
+        </view>
+      </view>
+    </block>
+
+    <block wx:if = "{{personInfo.trainStudyAssessStatus != -1}}">
+      <view class='wrui-view_display_flex_row item_view'>
+        <view class='wrui-view_flex_1 name'>学习层测评</view>
+        <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">         <view style='{{personInfo.trainStudyAssessStatus == 1 ? "color: #50acfb" : ""}}'>{{personInfo.trainStudyAssessStatus == 1 ? '已完成' : '未完成'}}</view>
+          <image src='{{personInfo.trainStudyAssessStatus == 1 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
+        </view>
+      </view>
+    </block>
+
+    <block wx:if = "{{personInfo.archiveStatus != -1}}">
+      <view class='wrui-view_display_flex_row item_view'>
+        <view class='wrui-view_flex_1 name'>学习纪律归档至MSS</view>
+        <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">         <view style='{{personInfo.archiveStatus == 1 ? "color: #50acfb" : ""}}'>{{personInfo.archiveStatus == 1 ? '已完成' : '未完成'}}</view>
+          <image src='{{personInfo.archiveStatus == 1 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
+        </view>
+      </view>
+    </block>
+
+    </block>
+    <block wx:else>
+    <block wx:if = "{{personInfo.signRateOfTrain != -1}}">
+        <view class='wrui-view_display_flex_row item_view'>
+        <view class='wrui-view_flex_1 name'>培训班签到率 {{personInfo.signRateOfTrain ? personInfo.signRateOfTrain * 100 : 0}}%</view>
+        <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">     
+
+          <view style='{{personInfo.signRateOfTrain * 100 > 50 ? "color: #50acfb" : ""}}'>{{personInfo.signRateOfTrain * 100 > 50 ? '已完成' : '未完成'}}</view>
+          <image src='{{personInfo.signRateOfTrain * 100 > 50 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
+        </view>
+      </view>
+      </block>
+<block wx:if = "{{personInfo.assessRate != -1}}">
+    <view class='wrui-view_display_flex_row item_view'>
+        <view class='wrui-view_flex_1 name'>整体满意评估率 {{personInfo.assessRate ? personInfo.assessRate * 100 : 0}}%</view>
+        <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">         <view style='{{personInfo.assessRate * 100 >= 50 ? "color: #50acfb" : ""}}'>{{personInfo.assessRate * 100 >= 50 ? '已完成' : '未完成'}}</view>
+          <image src='{{personInfo.assessRate * 100 >= 50 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
+        </view>
+      </view>
+  </block>
+  <block wx:if = "{{personInfo.isMatching != -1}}">
+      <view class='wrui-view_display_flex_row item_view'>
+        <view class='wrui-view_flex_1 name'>师资信息全匹配</view>
+        <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">         <view style='{{personInfo.isMatching == 1 ? "color: #50acfb" : ""}}'>{{personInfo.isMatching == 1 ? '已完成' : '未完成'}}</view>
+          <image src='{{personInfo.isMatching == 1 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
+        </view>
+      </view>
+</block>
+<block wx:if = "{{personInfo.isComplete != -1}}">
+      <view class='wrui-view_display_flex_row item_view'>
+        <view class='wrui-view_flex_1 name'>培训班办结</view>
+        <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">         <view style='{{personInfo.isComplete == 1 ? "color: #50acfb" : ""}}'>{{personInfo.isComplete == 1 ? '已完成' : '未完成'}}</view>
+          <image src='{{personInfo.isComplete == 1 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
+        </view>
+      </view>
+</block>
+
+    </block>
+  </view>
 
 </view>

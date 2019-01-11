@@ -30,7 +30,7 @@
                 <image src='{{item.userIcon}}' class='left_image'></image>
                 <view class='wrui-view_flex_1 name'>{{item.userName}}</view>
                 <view class='wrui-view_display_flex_row q_view'>
-                    <view>代签</view>
+                    <view><block wx:if = "{{item.signStatus == 1}}">已代签</block><block wx:elif = "{{item.signStatus == 2}}">已准假</block><block wx:elif = "{{item.signStatus == 3}}">已签到</block></view>
                 </view>
 
                 

@@ -11,7 +11,7 @@
           <view class='num'>{{notSignPeople}}</view>
           <view class='not'>未签到</view>
        </view>
-      <view class='times'>签到率{{signInRate}}%</view>
+      <view class='times'>签到率{{signInRate ? signInRate : 0}}%</view>
       <navigator class='c_k_view' url= '../signInPerson/signInPerson?info={{nowDate + apName}}&date={{dates}}&times={{ap}}'>点击查看</navigator>
        </block>
     </view>

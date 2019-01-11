@@ -1,1 +1,40 @@
 /* pages/personal/personalInfo/personalInfo.wxss */
+
+.head_view{
+  background: white;padding: 30rpx;border-top: 1rpx solid #f2f2f2;
+}
+.title_view{
+   font-size: 40rpx;color: #333;font-weight: bold;margin: auto 0;
+}
+.organizers_view{
+  font-size: 28rpx;color: #666;padding-top: 15rpx;
+}
+.date_view{
+  font-size: 28rpx;color: #666;padding: 10rpx 0;
+}
+
+.content_view{
+  background: white;
+}
+
+
+
+
+.item_view{
+  padding: 25rpx 30rpx;background: white;border-bottom: 1rpx solid #f2f2f2;
+}
+.item_view .left_image{
+  width: 60rpx;height: 60rpx;display: block;margin: auto 0;
+}
+.item_view .name{
+  font-size: 30rpx;color: #333;margin: auto 0;
+}
+.q_view{
+
+}
+.q_view image{
+  width: 40rpx;height: 40rpx;display: block;padding-right: 10rpx;margin: auto 0;padding-left: 20rpx;
+}
+.q_view>view{
+  font-size: 30rpx;color: #999;margin: auto 0;
+}

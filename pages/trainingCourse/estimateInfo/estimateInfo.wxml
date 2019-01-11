@@ -70,6 +70,6 @@
   </view>
 
   <view style='height: 100rpx;'></view>
-  <navigator class='bottom_view' url='../notEstimatePerson/notEstimatePerson'>查看未评估</navigator>
+  <navigator class='bottom_view' url='../notEstimatePerson/notEstimatePerson?assessId={{infoPro.id}}'>查看未评估</navigator>
 
 </view>

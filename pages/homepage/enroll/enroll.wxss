@@ -46,7 +46,7 @@
 }
 
 .co_type_view{
-  font-size: 30rpx;padding: 20rpx 0;border-bottom: 1rpx solid #f2f2f2;color: #dad6d6;
+  font-size: 30rpx;padding: 20rpx 0;border-bottom: 1rpx solid #f2f2f2;color: #333;
 }
 
 

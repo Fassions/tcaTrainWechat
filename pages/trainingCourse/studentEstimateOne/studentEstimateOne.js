@@ -7,17 +7,42 @@ Page({
    */
   data: {
     assessList: [],
-    info: 1
+    info: 1,
+    atype: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+   
+    if (options.atype){
+      this.data.atype = options.atype;
+      this.setData({
+        atype: options.atype
+      })
+    }
     
     this.setData({
       info: options.info
     })
+
+    if(options.info == 0){
+      wx.setNavigationBarTitle({
+        title: '课程评估',
+      })
+    } else if (options.info == 1){
+
+      if (options.atype){
+        wx.setNavigationBarTitle({
+          title: '学习层评估',
+        })
+      }else{
+        wx.setNavigationBarTitle({
+          title: '个性化评估',
+        })
+      }
+    }
   },
 
   /**
@@ -61,7 +86,7 @@ Page({
     var tempPro = [];
     var tempObj = {};
     tempObj['assessId'] = assessList[tempIndex].id;
-    tempObj['assessScore'] = assessList[tempIndex].num;
+    tempObj['assessScore'] = assessList[tempIndex].num + 1;
 
     tempPro.push(tempObj);
 
@@ -115,10 +140,18 @@ Page({
         var assessList = [];
         if (item.assessList) {
           for (var i = 0; i < item.assessList.length; i++) {
-
-            if (item.assessList[i].assessType == 1) {
-              item['ass1'] = 1;
+          
+            if (that.data.atype == 0){
+              if (item.assessList[i].assessType == 1) {
+                item['ass1'] = 1;
+              }
+              
+            }else{
+              if (item.assessList[i].assessType == 3) {
+                item['ass1'] = 1;
+              }
             }
+            
             if (item.assessList[i].assessType == 0) {
               item['ass2'] = 2;
             }
