@@ -122,11 +122,16 @@ Page({
     
   },
   btn_g_x_h:function(e){
-    var index = e.currentTarget.dataset.index;
-    app.globalData.gXUrl = this.data.assessList[index].assessUrl;
-    wx.navigateTo({
-      url: '../individuation/individuation',
+
+    wx.showModal({
+      title: '提示',
+      content: '此功能暂不支持在小程序中进行，请至APP或pc端进行',
     })
+    // var index = e.currentTarget.dataset.index;
+    // app.globalData.gXUrl = this.data.assessList[index].assessUrl;
+    // wx.navigateTo({
+    //   url: '../individuation/individuation',
+    // })
   },
   getStudentEs: function () {
     var that = this;

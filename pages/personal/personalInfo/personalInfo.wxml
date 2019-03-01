@@ -59,7 +59,7 @@
 
     <block wx:if = "{{personInfo.archiveStatus != -1}}">
       <view class='wrui-view_display_flex_row item_view'>
-        <view class='wrui-view_flex_1 name'>学习纪律归档至MSS</view>
+        <view class='wrui-view_flex_1 name'>学习记录归档至MSS</view>
         <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">         <view style='{{personInfo.archiveStatus == 1 ? "color: #50acfb" : ""}}'>{{personInfo.archiveStatus == 1 ? '已完成' : '未完成'}}</view>
           <image src='{{personInfo.archiveStatus == 1 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
         </view>

@@ -17,7 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  
   },
 
   /**
@@ -31,7 +31,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getCouseList(this.data.keyWords, 1, 0);
+    
+    if (app.globalData.userId != ''){
+      this.getCouseList(this.data.keyWords, 1, 0);
+    }else{
+      wx.reLaunch({
+        url: 'notPerson/notPerson',
+      })
+    } 
   },
 
   /**
@@ -118,7 +125,7 @@ Page({
     var coursePro = that.data.coursePro;
     app.globalData.trainId = coursePro[index].class_id;
     app.globalData.trainName = coursePro[index].class_name;
-
+    app.globalData.userRoleCode = coursePro[index].userRoleCode;
     if (coursePro[index].user_checked == 1){
       wx.navigateTo({
         url: '../homepage/enroll/enroll?id=' + coursePro[index].class_id,
@@ -140,5 +147,5 @@ Page({
   btn_input:function(e){
     this.data.keyWords = e.detail.value;
     this.getCouseList(e.detail.value, 1, 0);
-  }
+  },
 })

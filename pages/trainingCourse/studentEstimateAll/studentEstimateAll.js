@@ -70,7 +70,7 @@ Page({
     } else if (index == 4) {
       tempList[tempIndex].numName = '非常好';
     }
-
+    console.log(tempList);
     this.setData({
       tempList: tempList
     })
@@ -100,7 +100,7 @@ Page({
       }
       var tempObj = {};
       tempObj['templateId'] = tempList[i].id;
-      tempObj['assessScore'] = tempList[i].num + 1;
+      tempObj['assessScore'] = tempList[i].num;
       
       if (i == 0){
         tempObj['isScore'] = true;

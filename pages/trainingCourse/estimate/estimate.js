@@ -9,7 +9,8 @@ Page({
     sw: 0,
     courselist: [],
     questionList: [],
-    estimatePro: {}
+    estimatePro: {},
+    userRoleCode: '00'
   },
 
   /**
@@ -17,6 +18,9 @@ Page({
    */
   onLoad: function (options) {
     this.getSystemData();
+    this.setData({
+      userRoleCode: app.globalData.userRoleCode
+    })
   },
 
   /**

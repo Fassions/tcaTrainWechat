@@ -23,7 +23,8 @@ Page({
     nowDate: '',
     apName: '',
     dates: '',
-    ap: ''
+    ap: '',
+    userRoleCode: '00'
   },
 
   /**
@@ -31,6 +32,10 @@ Page({
    */
   onLoad: function(options) {
     this.getSystemData();
+
+    this.setData({
+      userRoleCode: app.globalData.userRoleCode
+    })
 
   },
 

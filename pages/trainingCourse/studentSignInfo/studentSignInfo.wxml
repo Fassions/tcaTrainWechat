@@ -41,10 +41,15 @@
 
   <view class='wrui-view_display_flex_row wrui_row_list_image_view'>
     <block wx:for="{{homeTab}}">
-      <navigator class='wrui_row_list_image_item' url='{{item.to}}' style='width: {{100/homeTab.length}}%;'>
+      <navigator class='wrui_row_list_image_item' url='{{item.to}}' style='width: {{100/homeTab.length}}%;' open-type='{{item.openType}}'>
         <image src='{{item.image}}' style='{{item.style}}'></image>
         <view>{{item.name}}</view>
       </navigator>
     </block>
   </view>
+
+  <block wx:if = "{{userRoleCode == '06'}}">
+<view style='height: 100rpx;'></view>
+  <navigator class='bottom_view' url='../signIn/signIn' open-type='redirect'>进入管理员</navigator>
+  </block>
 </view>

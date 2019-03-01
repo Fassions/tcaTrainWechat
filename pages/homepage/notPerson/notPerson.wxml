@@ -1,0 +1,5 @@
+<!--pages/homepage/notPerson/notPerson.wxml-->
+<view class='page_view'>
+
+    <image src='../../../images/n.jpg' style='width:100%;height:100%;' mode="aspectFill"></image>
+</view>

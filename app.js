@@ -131,7 +131,9 @@ App({
     unionId: null,
     assessList: null,
     tempList: null,
-    trainInfo: {}
+    trainInfo: {},
+    userRoleCode: null,
+    isLogin: 0
   },
   saveOpenId: function (openId, userInfo = null) {
     var that = this;
@@ -169,6 +171,7 @@ App({
       type: 1
     }
     that.requestPost(that, url.urlApi.getUserInfoUrl, parameter, function (res) {
+      console.log(res);
       that.globalData.unionId = res.data.unionId;
       if (that.unionIdReadyCallback) {
         that.unionIdReadyCallback(res)

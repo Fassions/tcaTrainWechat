@@ -45,6 +45,16 @@ Page({
 
       if (res.data != '0') {
         var item = res.data;
+
+        if (item.assessRate){
+          item.assessRate = parseInt(item.assessRate * 100)/100;
+        }
+        if (item.signRateOfTrain) {
+          item.signRateOfTrain = parseInt(item.signRateOfTrain * 100) / 100;
+        }
+        if (item.signRate) {
+          item.signRate = parseInt(item.signRate * 100) / 100;
+        }
         that.setData({
           personInfo: item
         })

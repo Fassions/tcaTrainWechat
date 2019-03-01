@@ -23,6 +23,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    wx.hideTabBar({
+      animation: false
+    })
     wx.getSetting({
       success: res => {
         if (!res.authSetting['scope.userInfo']) {
@@ -39,6 +43,7 @@ Page({
     key: 'userId',
     success:function(res){
       if(res.data == '-1'){
+        
         if (app.globalData.unionId) {
           that.unionIdExit();
         } else {
@@ -46,6 +51,10 @@ Page({
             that.unionIdExit();
           }
         }
+      }else{
+        wx.showTabBar({
+          
+        })
       }
     },
     fail:function(){
@@ -136,7 +145,6 @@ Page({
   },
   unionIdExit:function(){
     var that = this;
-    console.log(22);
     var parameter = {
       unionId: app.globalData.unionId,
     }
@@ -157,6 +165,9 @@ Page({
         // })
         that.btn_p();
       }else{
+        wx.showTabBar({
+          
+        })
         app.globalData.userId = res.data;
         that.setStorage(res.data);
       }
@@ -176,17 +187,24 @@ Page({
       })
       if(res.data != '0'){
         if(res.data == '-1'){
-            wx.showModal({
-              title: '提示',
-              content: '该手机号未注册任何网大账号',
-              showCancel: false,
-              success:function(res){
-                that.setData({
-                  isGetPhone: false
-                })
-              }
+            // wx.showModal({
+            //   title: '提示',
+            //   content: '该手机号未注册任何网大账号',
+            //   showCancel: false,
+            //   success:function(res){
+            //     that.setData({
+            //       isGetPhone: false
+            //     })
+            //   }
+            // })
+
+            wx.reLaunch({
+              url: 'notPerson/notPerson',
             })
         }else{
+          wx.showTabBar({
+
+          })
           app.globalData.userId = res.data;
           that.setStorage(res.data);
           that.setData({
@@ -240,6 +258,10 @@ Page({
     this.setData({
       isPhone: true
     })
+
+    wx.reLaunch({
+      url: 'notPerson/notPerson',
+    })
     
   },
   btn_p:function(){
@@ -247,6 +269,7 @@ Page({
         isPhone: false,
         isGetPhone: false
       })
+    app.globalData.isLogin == -1;
     
     
   },

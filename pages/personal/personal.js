@@ -10,14 +10,15 @@ Page({
     coursePro: [],
     pageInt: 1,
     pageSize: {},
-    keyWords: ''
+    keyWords: '',
+    isPhone: true,
+    isGetPhone: true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
   },
 
   /**
@@ -32,6 +33,17 @@ Page({
    */
   onShow: function() {
     this.getCouseList(this.data.keyWords, 1, 0);
+
+    if (app.globalData.isLogin == -1) {
+      wx.reLaunch({
+        url: 'notPerson/notPerson',
+      })
+    }
+
+    var that = this;
+
+    
+
   },
 
   /**
@@ -132,5 +144,5 @@ Page({
   btn_input: function(e) {
     this.data.keyWords = e.detail.value;
     this.getCouseList(e.detail.value, 1, 0);
-  }
+  },
 })

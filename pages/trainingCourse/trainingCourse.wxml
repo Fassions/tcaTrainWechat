@@ -27,11 +27,14 @@
         </view>
       </view>
     </block>
+    <block wx:if = "{{pageSize.total_size}}">
      <block wx:if="{{pageSize.total_size == pageSize.page_size}}">
       <view class="weui-loadmore" style='width: 100%;float: left;'>
         <view class="weui-loading"></view>
         <view class="weui-loadmore__tips">正在加载</view>
       </view>
     </block>
+    </block>
+  
   </view>
 </view>

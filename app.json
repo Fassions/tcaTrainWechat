@@ -22,7 +22,8 @@
    "pages/homepage/enrollInfo/enrollInfo",
    "pages/personal/personalInfo/personalInfo",
    "pages/trainingCourse/individuation/individuation",
-   "pages/trainingCourse/feedback/feedback"
+   "pages/trainingCourse/feedback/feedback",
+   "pages/homepage/notPerson/notPerson"
   ],
   "window":{
     "backgroundTextStyle":"light",

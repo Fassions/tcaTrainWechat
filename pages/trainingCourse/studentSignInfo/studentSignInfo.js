@@ -9,11 +9,13 @@ Page({
     homeTab: [{
       image: '../../../images/tc/pinggu.png',
       name: '评估',
-      to: '../studentEstimate/studentEstimate'
+      to: '../studentEstimate/studentEstimate',
+      openType: 'navigate'
     }, {
       image: '../../../images/tc/richeng.png',
       name: '日程',
-        to: '../studentSchedule/studentSchedule'
+      to: '../studentSchedule/studentSchedule',
+      openType: 'navigate'
     }],
     ap: null,
     dates: null,
@@ -25,14 +27,19 @@ Page({
     inputName1: '',
     inputName2: '',
     inputName3: '',
-    inputName4: ''
+    inputName4: '',
+    userRoleCode: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var userRoleCode = app.globalData.userRoleCode;
+ 
+    this.setData({
+      userRoleCode: userRoleCode
+    })
   },
 
   /**

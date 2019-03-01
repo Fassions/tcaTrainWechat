@@ -1,7 +1,7 @@
 <!--pages/wxLogin/wxLogin.wxml-->
 <view class='page_view'>
 
-    <view class='title'>培训班</view>
+    <image src='../../images/lo.png' class='logo_image'></image>
 
     <button class='login_buton' open-type='getUserInfo' bindgetuserinfo="onGotUserInfo">微信登录</button>
 </view>

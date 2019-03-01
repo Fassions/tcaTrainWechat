@@ -1,6 +1,6 @@
  
-var url = 'https://circledemo.myctu.cn:8443/';//测试
-var url2 = 'https://api.wechat800.cn/yuanlin/interface/';//正式
+var url = 'https://circle.myctu.cn/';//测试
+var url1 = 'https://circledemo.myctu.cn:8443/';//正式
 
 var urlObj = {
   getOpenId: url + 'tca-wechat/common/getSessionKey',//获取openId

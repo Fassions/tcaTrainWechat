@@ -48,4 +48,9 @@
     </block>
   </view>
 
+
+  <block wx:if = "{{userRoleCode == '06'}}">
+<view style='height: 100rpx;'></view>
+  <navigator class='bottom_view' url='../studentSignInfo/studentSignInfo' open-type='redirect'>进入学员端</navigator>
+  </block>
 </view>

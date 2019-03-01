@@ -73,4 +73,9 @@
       </navigator>
     </block>
   </view>
+
+  <!-- <block wx:if = "{{userRoleCode == '06'}}">
+<view style='height: 100rpx;'></view>
+  <navigator class='bottom_view' url='../studentEstimate/studentEstimate' open-type='redirect'>我要评估</navigator>
+  </block> -->
 </view>
