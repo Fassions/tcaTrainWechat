@@ -68,6 +68,8 @@ var urlObj = {
 
   publishNotperonalMessage: url + 'tca-wechat/admin/sendMsgForUnassessed',//一、未评估学员消息推送
 
+  trainUserBatchSign: url + 'tca-wechat/admin/trainUserBatchSign',//代签、准假接口文档
+
 
   ossImageUrl: 'http://yucha.oss-cn-beijing.aliyuncs.com/',
 

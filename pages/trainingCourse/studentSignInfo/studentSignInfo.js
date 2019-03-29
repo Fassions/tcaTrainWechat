@@ -19,7 +19,7 @@ Page({
     }],
     ap: null,
     dates: null,
-    isFocus: true,
+    isFocus: false,
     inputIndex: -1,
     inputIndex1: -1,
     inputIndex2: -1,
@@ -28,7 +28,8 @@ Page({
     inputName2: '',
     inputName3: '',
     inputName4: '',
-    userRoleCode: ''
+    userRoleCode: '',
+    inputY: ''
   },
 
   /**
@@ -55,10 +56,11 @@ Page({
   onShow: function() {
 
     this.setData({
-      inputName1: '',
-      inputName2: '',
-      inputName3: '',
-      inputName4: ''
+      // inputName1: '',
+      // inputName2: '',
+      // inputName3: '',
+      // inputName4: '',
+      inputY: ''
     })
     this.getNowFormatDate();
   },
@@ -157,12 +159,12 @@ Page({
     var ap = that.data.ap;
     var value = e.detail.value;
 
-    if (value.input1 == '' || value.input2 == '' || value.input3 == '' || value.input4 == '') {
-        wx.showToast({
-          title: '请输入签到码',
-          icon: 'none',
-          duration: 2000
-        })
+    if (value.input_y == '') {
+      wx.showToast({
+        title: '请输入签到码',
+        icon: 'none',
+        duration: 2000
+      })
     }else{
 
       var parameter = {
@@ -170,7 +172,7 @@ Page({
         date: dates,
         time: ap,
         userId: app.globalData.userId,
-        code: value.input1 + value.input2 + value.input3 + value.input4 + ''
+        code: value.input_y
       }
       app.requestPost(that, app.globalData.urlApi.studentSignIn, parameter, function (res) {
         if (res.data != '0') {
@@ -182,10 +184,11 @@ Page({
           })
 
           that.setData({
-            inputName1: '',
-            inputName2: '',
-            inputName3: '',
-            inputName4: ''
+            // inputName1: '',
+            // inputName2: '',
+            // inputName3: '',
+            // inputName4: '',
+            input_y: ''
           })
         }else{
           wx.showToast({
@@ -197,6 +200,11 @@ Page({
 
       })
     }
+  },
+  inputey: function (e) {
+    this.setData({
+      inputY: e.detail.value
+    })
   },
   inputy1: function (e) {
 
@@ -249,5 +257,10 @@ Page({
       })
     }
 
+  },
+  btn_foucs: function () {
+    this.setData({
+      isFocus: true
+    })
   },
 })

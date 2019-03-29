@@ -8,7 +8,7 @@
                   <view class='wrui-view_display_flex_row item_head_view'>
                       <image src='{{item.creator.iconUrl}}'></image>
                       <view class='wrui-view_flex_1'><text style='color: #333;font-size: 32rpx;'>{{item.creator.name}}</text> {{item.creator.roleName}}</view>
-                      <view>{{}}</view>
+                      <view style='padding-right: 30rpx;'>{{item.dates.times}}</view>
                   </view>
                   <view class='item_content'>{{item.content}}</view>
             </view>

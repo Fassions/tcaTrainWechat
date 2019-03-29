@@ -52,8 +52,8 @@ Page({
       if (res.data != '0') {
         var item = res.data.items;
         var pageSize = res.data.page;
-        console.log(item);
-        if (pageSize.total_size > 0) {
+       
+        if (pageSize.total_size > 0 && item) {
 
           // for (var i = 0; i < item.length; i++) {
 
@@ -104,7 +104,76 @@ Page({
     var index = e.currentTarget.dataset.index;
     var personPro = this.data.personPro;
 
+    personPro[index].signStatus = personPro[index].signStatus == 0 || personPro[index].signStatus == 2 ? 1 : 0;
 
+    this.setData({
+      personPro: personPro
+    })
 
+  },
+  btn_select_z: function (e) {
+    var index = e.currentTarget.dataset.index;
+    var personPro = this.data.personPro;
+
+    personPro[index].signStatus = personPro[index].signStatus == 0 || personPro[index].signStatus == 1 ? 2 : 0;
+
+    this.setData({
+      personPro: personPro
+    })
+
+  },
+  btn_ok:function(){
+    var that = this;
+    var personPro = that.data.personPro;
+    var pePro = [];
+
+    for(var i = 0; i < personPro.length; i++){
+      var peObj = {};
+
+      if (personPro[i].signStatus != 0){
+        peObj['signStatus'] = personPro[i].signStatus;
+        peObj['userId'] = personPro[i].userId;
+
+        pePro.push(peObj);
+      }
+      
+    }
+
+    if (pePro.length == 0){
+      return;
+    }
+
+    var parameter = {
+      trainId: app.globalData.trainId,
+      date: that.data.date,
+      time: that.data.times,
+      userSignInfo: JSON.stringify(pePro)
+    }
+    app.requestPost(that, app.globalData.urlApi.trainUserBatchSign, parameter, function (res) {
+      if (res.data) {
+        setTimeout(function () {
+
+          that.setData({
+            isSubmit: false
+          })
+        }, 2000)
+        that.getSignInInfo(that.data.date, that.data.times, that.data.acIndex, 1, 0, 0, false);
+        wx.showToast({
+          title: '操作成功',
+          duration: 2000
+        })
+      }else{
+        wx.showToast({
+          title: '操作失败',
+          duration: 2000
+        })
+
+        setTimeout(function () {
+          that.setData({
+            isSubmit: false
+          })
+        }, 2000)
+      }
+    })
   }
 })

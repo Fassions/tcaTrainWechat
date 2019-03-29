@@ -37,7 +37,9 @@
             </view>
         </block>
      </view>
-
-     <view style='height: 100rpx;'></view>
-  <view class='bottom_view'>确定</view>
+  <block wx:if = '{{acIndex == 0}}'>
+    <view style='height: 100rpx;'></view>
+  <view class='bottom_view' catchtap='btn_ok'>确定</view>
+  </block>
+     
 </view>

@@ -3,7 +3,7 @@
 
     <view class='title_view'>请输入邀请码</view>
     <form bindsubmit='btn_submit'>
-    <view class='wrui-view_display_flex_row input_view'>
+    <!-- <view class='wrui-view_display_flex_row input_view'>
         <view class='input'>
             <input maxlength = '1' name = "input1" focus='{{inputIndex == 0 && isFocus}}' bindinput='inputy1' value='{{inputName1}}'></input>
         </view>
@@ -18,6 +18,12 @@
 
         <view class='input'>
             <input maxlength = '1' name = "input4" focus='{{inputIndex3 == 3 && isFocus}}' bindinput='inputy4' value='{{inputName4}}'></input>
+        </view>
+    </view> -->
+    <view class='wrui-view_display_flex_row h-input' catchtap='btn_foucs'>
+        <icon type = "search" class='hi-icon'></icon>
+        <view>
+          <input placeholder='邀请码' value='{{inputY}}' name = "input_y" maxlength='4' bindinput='inputey' focus='{{isFocus}}'></input>
         </view>
     </view>
     <view style='height: 30rpx;'></view>

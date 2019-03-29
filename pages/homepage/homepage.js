@@ -8,7 +8,7 @@ Page({
   data: {
     isPhone: true,
     isGetPhone: true,
-    isFocus: true,
+    isFocus: false,
     inputIndex: -1,
     inputIndex1: -1,
     inputIndex2: -1,
@@ -16,17 +16,20 @@ Page({
     inputName1: '',
     inputName2: '',
     inputName3: '',
-    inputName4: ''
+    inputName4: '',
+    inputY: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-    wx.hideTabBar({
-      animation: false
-    })
+    if (app.globalData.userId == ''){
+      wx.hideTabBar({
+        animation: false
+      })
+    }
+    
     wx.getSetting({
       success: res => {
         if (!res.authSetting['scope.userInfo']) {
@@ -34,6 +37,8 @@ Page({
             url: '../wxLogin/wxLogin',
           })
 
+        }else{
+          
         }
       }
     })
@@ -69,8 +74,10 @@ Page({
     }
   })
 
-    
-    
+
+    if (app.globalData.userId != '') {
+      wx.showTabBar({})
+    }
   },
 
   /**
@@ -85,11 +92,14 @@ Page({
    */
   onShow: function () {
     this.setData({
-      inputName1: '',
-      inputName2: '',
-      inputName3: '',
-      inputName4: ''
+      // inputName1: '',
+      // inputName2: '',
+      // inputName3: '',
+      // inputName4: ''
+      inputY: ''
     })
+
+    
   },
 
   /**
@@ -119,12 +129,10 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  btn_foucs:function(){
+    this.setData({
+      isFocus: true
+    })
   },
   btn_scan:function(){
     var that = this;
@@ -224,7 +232,7 @@ Page({
   btn_submit:function(e){
     var that = this;
     var value = e.detail.value;
-    if (value.input1 == '' || value.input2 == '' || value.input3 == '' || value.input4 == '') {
+    if (value.input_y == '') {
       wx.showToast({
         title: '请输入邀请码',
         icon: 'none',
@@ -233,7 +241,7 @@ Page({
     } else {
 
       var parameter = {
-        trainIndex: value.input1 + value.input2 + value.input3 + value.input4 + ''
+        trainIndex: value.input_y + ''
       }
       app.requestPost(that, app.globalData.urlApi.inviteCode, parameter, function (res) {
         if (res.data != 'null') {
@@ -292,6 +300,11 @@ Page({
     app.requestPost(that, app.globalData.urlApi.getUserInfoUrl, parameter, function (res) {
       
       that.getBindingPhone(res.data.phoneNumber);
+    })
+  },
+  inputey:function(e){
+    this.setData({
+      inputY: e.detail.value
     })
   },
   inputy1:function(e){

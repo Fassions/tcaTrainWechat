@@ -19,7 +19,7 @@ Page({
     inputg_w: '',
     inputco: '',
     inputPhone: '',
-    isSubmit: true
+    isSubmit: true,
   },
   onLoad: function(options) {
     this.getPersonInfo();
@@ -59,24 +59,22 @@ Page({
       trainId: app.globalData.trainId
     }
     app.requestPost(that, app.globalData.urlApi.enrollOkUrl, parameter, function(res) {
-      if (res.data != '-1') {
+      if (res.data != "\"-1\"") {
 
-        wx.showModal({
-          title: '提示',
-          content: '报名成功',
-          showCancel: false,
-          success: function(res) {
-            wx.navigateBack({
-              delta: 2
-            })
-            that.setData({
-              isSubmit: true
-            })
-          }
+        wx.showToast({
+          title: '报名成功',
+          icon: 'none',
+          duration: 2000
         })
+
+        setTimeout(function(){
+          wx.redirectTo({
+            url: '../../trainingCourse/studentSignInfo/studentSignInfo',
+          })
+        },2000)
       } else {
         wx.showToast({
-          title: '报名失败',
+          title: '培训班已结束报名',
           icon: 'none',
           duration: 2000
         })

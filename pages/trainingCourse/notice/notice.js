@@ -87,6 +87,8 @@ Page({
     })
   },
   getNowFormatDay: function (dateN) { //获取当前时间
+
+
     var date = new Date(dateN);
     var seperator1 = "-";
     var seperator2 = ":";
@@ -112,10 +114,11 @@ Page({
     }
     var currentdate = month + '月' + strDate + "号";
     var currentday = date.getFullYear() + seperator1 + month + seperator1 + strDate;
-
+    var times = month + seperator1 + strDate + ' ' + hours + seperator2 + minutes;
     var objDate = {
       'currentdate': currentdate,
-      'currentday': currentday
+      'currentday': currentday,
+      'times': times
     }
     return objDate;
   },

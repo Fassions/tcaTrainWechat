@@ -2,7 +2,7 @@
 <view class='page_view'>
     <view class='title_view'>请输入签到码</view>
     <form bindsubmit='btnStudentSigIn'>
-    <view class='wrui-view_display_flex_row input_view'>
+    <!-- <view class='wrui-view_display_flex_row input_view'>
         <view class='input'>
             <input maxlength = '1' name = "input1" focus='{{inputIndex == 0 && isFocus}}' bindinput='inputy1' value='{{inputName1}}' type='number'></input>
         </view>
@@ -18,7 +18,14 @@
         <view class='input'>
             <input maxlength = '1' name = "input4" focus='{{inputIndex3 == 3 && isFocus}}' bindinput='inputy4' value='{{inputName4}}' type='number'></input>
         </view>
+    </view> -->
+<view class='wrui-view_display_flex_row h-input' catchtap='btn_foucs'>
+        <icon type = "search" class='hi-icon'></icon>
+        <view>
+          <input placeholder='签到码' value='{{inputY}}' name = "input_y" maxlength='4' bindinput='inputey' focus='{{isFocus}}'></input>
+        </view>
     </view>
+    
     <view style='height: 30rpx;'></view>
     <button class='publish' form-type='submit'>确定</button>
     </form>

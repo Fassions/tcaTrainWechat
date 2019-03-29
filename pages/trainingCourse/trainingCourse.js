@@ -107,10 +107,14 @@ Page({
             item = that.data.coursePro.concat(item);
           }
 
+          that.data.pageInt = pageInt;
+
         } else {
-          item = null;
+          if (pageType == 0){
+            item = null;
+          }
         }
-        that.data.pageInt = pageInt;
+        
 
         that.setData({
           coursePro: item,

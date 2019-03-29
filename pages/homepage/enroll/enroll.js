@@ -39,6 +39,10 @@ Page({
     app.requestPost(that, app.globalData.urlApi.trainingInfo, parameter, function (res) {
       if (res.data != 'null') {
 
+        app.globalData.trainId = res.data.trainId;
+        app.globalData.trainName = res.data.trainName;
+        app.globalData.userRoleCode = '04';
+
           that.setData({
             trainInfo: res.data
           })

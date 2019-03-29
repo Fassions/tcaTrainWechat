@@ -68,7 +68,7 @@
     </block>
     <block wx:else>
       <block wx:if="{{trainInfo.trainStatus == 0}}">
-        <navigator class='bottom_view' url='../enrollInfo/enrollInfo'>提交报名</navigator>
+        <navigator class='bottom_view' url='../enrollInfo/enrollInfo?id={{id}}'>提交报名</navigator>
       </block>
       <block wx:else>
        <view class='bottom_view' style='color: #666;background: white;' hover-class='hover_class' catchtap='btn_cancel'>取消报名</view>
