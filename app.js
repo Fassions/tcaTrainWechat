@@ -124,7 +124,7 @@ App({
     isUserInfo: false,
     trainId: '',//ff80808167ca34b10167cac2b63a0004
     trainName: '',//培训班名称
-    userId: '5219499',//5219499
+    userId: '',//5219499
     estmatePro: {},
     appId: 'wx79b14d4085d2df9d',
     sessionKey: null,
