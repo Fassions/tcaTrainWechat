@@ -186,6 +186,10 @@ App({
         console.log(res);
         if(res.data != -1){
           that.globalData.userId = res.data;
+
+          if (that.userIdReadyCallback) {
+            that.userIdReadyCallback(res)
+          }
           //that.getOpenId(1);
         }else{
           that.getOpenId(0);

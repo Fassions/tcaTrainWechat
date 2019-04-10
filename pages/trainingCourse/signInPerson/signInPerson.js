@@ -79,6 +79,9 @@ Page({
   btn_not: function() {
 
     if (this.data.acIndex != 0) {
+      this.setData({
+        personPro: [],
+      })
       this.data.acIndex = 0;
       this.getSignInInfo(this.data.date, this.data.times, this.data.acIndex, 1, 0);
 
@@ -91,6 +94,10 @@ Page({
 
     if (this.data.acIndex != 1) {
       this.data.acIndex = 1;
+
+      this.setData({
+        personPro: [],
+      })
       this.getSignInInfo(this.data.date, this.data.times, this.data.acIndex, 1, 0);
 
       this.setData({

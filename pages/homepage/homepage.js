@@ -24,11 +24,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.userId == ''){
-      wx.hideTabBar({
-        animation: false
-      })
-    }
+    
     
     wx.getSetting({
       success: res => {
@@ -48,7 +44,11 @@ Page({
     key: 'userId',
     success:function(res){
       if(res.data == '-1'){
-        
+
+        wx.hideTabBar({
+          animation: false
+        })
+          
         if (app.globalData.unionId) {
           that.unionIdExit();
         } else {
@@ -56,14 +56,12 @@ Page({
             that.unionIdExit();
           }
         }
-      }else{
-        wx.showTabBar({
-          
-        })
       }
     },
     fail:function(){
-      
+      wx.hideTabBar({
+        animation: false
+      })
       if (app.globalData.unionId) {
         that.unionIdExit();
       } else {
@@ -74,9 +72,12 @@ Page({
     }
   })
 
-
     if (app.globalData.userId != '') {
       wx.showTabBar({})
+    }else{
+      app.userIdReadyCallback = res => {
+        wx.showTabBar({})
+      }
     }
   },
 
@@ -98,6 +99,10 @@ Page({
       // inputName4: ''
       inputY: ''
     })
+
+    if (app.globalData.userId != '') {
+      wx.showTabBar({})
+    }
 
     
   },
