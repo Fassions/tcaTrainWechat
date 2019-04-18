@@ -47,13 +47,13 @@
         "selectedIconPath": "images/tab/peixunban0.png",
         "iconPath": "images/tab/peixunban.png",
         "pagePath": "pages/trainingCourse/trainingCourse",
-        "text": "培训班"
+        "text": "当前培训班"
       },
       {
         "selectedIconPath": "images/tab/wode0.png",
         "iconPath": "images/tab/wode.png",
         "pagePath": "pages/personal/personal",
-        "text": "我的"
+        "text": "历史培训班"
       }
     ]
   }

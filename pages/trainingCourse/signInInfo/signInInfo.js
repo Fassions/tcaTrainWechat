@@ -19,6 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    
     this.data.info = options.info;
     this.setData({
       trainName: app.globalData.trainName,
@@ -65,7 +66,6 @@ Page({
         var item = res.data.items;
         var pageSize = res.data.page;
         if (pageSize.total_size > 0) {
-          console.log(111);
           for (var i = 0; i < item.length; i++) {
             var date1 = '';
             if (that.data.info == 1){
@@ -73,7 +73,6 @@ Page({
             }else{
               date1 = item[i].signDate;
             }
-            console.log(date1);
             item[i]['dates'] = that.getNowFormatDay(date1);
             
           }

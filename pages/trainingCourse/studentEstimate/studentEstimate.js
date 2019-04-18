@@ -14,6 +14,21 @@ Page({
    */
   onLoad: function (options) {
     
+    wx.setNavigationBarTitle({
+      title: app.globalData.trainName,
+    })
+    var trainId = options.trainId;
+    if (trainId != "" && trainId != null) {
+      app.globalData.trainId = trainId;
+      var uid = wx.getStorageSync('userId');
+      if (uid != '' && uid != null) {
+        app.globalData.userId = uid;
+      } else {
+        wx.reLaunch({
+          url: '../../wxLogin/wxLogin',
+        })
+      }
+    }
   },
 
   /**

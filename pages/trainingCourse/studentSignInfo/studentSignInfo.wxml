@@ -22,7 +22,7 @@
 <view class='wrui-view_display_flex_row h-input' catchtap='btn_foucs'>
         <icon type = "search" class='hi-icon'></icon>
         <view>
-          <input placeholder='签到码' value='{{inputY}}' name = "input_y" maxlength='4' bindinput='inputey' focus='{{isFocus}}'></input>
+          <input placeholder='签到码' value='{{inputY}}' name = "input_y" maxlength='4' bindinput='inputey' focus='{{isFocus}}' type='number'></input>
         </view>
     </view>
     

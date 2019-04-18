@@ -36,8 +36,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var userRoleCode = app.globalData.userRoleCode;
- 
+    var userRoleCode;
+    var trainId = options.trainId;
+    if (trainId != '' && trainId != null) {
+      app.globalData.trainId = trainId;
+      userRoleCode = options.userRoleCode
+    } else {
+      userRoleCode = app.globalData.userRoleCode;
+    }
     this.setData({
       userRoleCode: userRoleCode
     })
@@ -182,14 +188,6 @@ Page({
             icon: 'none',
             duration: 2000
           })
-
-          that.setData({
-            // inputName1: '',
-            // inputName2: '',
-            // inputName3: '',
-            // inputName4: '',
-            input_y: ''
-          })
         }else{
           wx.showToast({
             title: '签到失败',
@@ -197,7 +195,9 @@ Page({
             duration: 2000
           })
         }
-
+        that.setData({
+          inputY: ''
+        })
       })
     }
   },

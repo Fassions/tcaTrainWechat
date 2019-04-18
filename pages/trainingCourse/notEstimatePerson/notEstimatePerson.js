@@ -17,7 +17,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
     this.data.assessId = options.assessId;
     if(options.info){
       this.data.info = options.info;
@@ -177,6 +176,7 @@ Page({
 
 
     var parameter = {
+      trainId: app.globalData.trainId,
       id: that.data.assessId,
       assessType: assessType,
       user: userId
