@@ -61,10 +61,9 @@ Page({
     }
     app.requestPost(that, that.data.info == 1 ? app.globalData.urlApi.signInfoInfo : app.globalData.urlApi.studentSignInInfo, parameter, function(res) {
 
-
-      if (res.data != '0') {
+      var pageSize = res.data.page;
+      if (res.data.items != null) {
         var item = res.data.items;
-        var pageSize = res.data.page;
         if (pageSize.total_size > 0) {
           for (var i = 0; i < item.length; i++) {
             var date1 = '';
@@ -84,13 +83,11 @@ Page({
         } else {
           item = null;
         }
-
-        that.setData({
-          historyPro: item,
-          pageSize: pageSize
-        })
-
       }
+      that.setData({
+        historyPro: item,
+        pageSize: pageSize
+      })
     })
   },
   getNowFormatDay: function(dateN) { //获取当前时间
