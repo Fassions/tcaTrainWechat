@@ -32,7 +32,9 @@ Page({
    */
   onLoad: function(options) {
     this.getSystemData();
-
+    wx.setNavigationBarTitle({
+      title: app.globalData.trainName,
+    })
     this.setData({
       userRoleCode: app.globalData.userRoleCode
     })

@@ -44,6 +44,9 @@ Page({
     } else {
       userRoleCode = app.globalData.userRoleCode;
     }
+    wx.setNavigationBarTitle({
+      title: app.globalData.trainName,
+    })
     this.setData({
       userRoleCode: userRoleCode
     })
