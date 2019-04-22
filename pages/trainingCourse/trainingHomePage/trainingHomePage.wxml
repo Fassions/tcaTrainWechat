@@ -1,0 +1,80 @@
+<!--pages/trainingCourse/trainingHomePage/trainingHomePage.wxml-->
+<view class='page_view'>
+
+    <view class='wrui-view_display_flex_row input_view' >
+        
+    </view>
+    
+    <image src='../../../images/tc/trainhome/home_bg@2x.png' class='background-image'></image>
+    <!-- <view style='height: 30rpx;'></view>
+     <view style='height: 16rpx;background: #f2f2f2;'></view> -->
+
+  <!-- <navigator class='wrui-view_display_flex_row person_type_view' url='../signInInfo/signInInfo?info=2' hover-class='hover_class'> -->
+    <!-- <image src='../../images/personal/s_j.png' class='type_head_image'></image> -->
+    <!-- <view class='type_left_view'>签到详情</view>
+    <image src='../../../images/tc/right.png' class='type_right_image'></image>
+  </navigator> -->
+
+  <!-- <view style='height: 16rpx;background: #f2f2f2;'></view> -->
+
+   <!-- <view class='wrui-view_display_flex_row f_x_view'>
+        <view class='h_x'></view>
+        <view class='name'>其他</view>
+        <view class='h_x'></view>
+    </view> -->
+     <view style='color:white;font-weight:block;font-size:16px;text-align:center;margin-top:20px;margin-bottom:20px;'>{{trainingName}}</view>
+
+  <view class='wrui-view_display_flex_row wrui_row_list_image_view'>
+    <!-- <block wx:for="{{homeTab}}">
+      <navigator class='wrui_row_list_image_item' url='{{item.to}}' style='width: {{100/homeTab.length}}%;' open-type='{{item.openType}}'>
+        <image src='{{item.image}}' style='{{item.style}}'></image>
+        <view>{{item.name}}</view>
+      </navigator>
+    </block> -->
+      <navigator  url='../studentSchedule/studentSchedule'  class='wrui_row_list_image_item image_top'   style='width: {{210/homeTab.length}}%;' open-type='navigate'>
+        <image src='../../../images/tc/trainhome/home_btn_trip_normal@3x.png' ></image>
+        <view >日程</view>
+      </navigator>  
+      <view  class='wrui_row_list_image_item image_grap' hover-class='hover_class' catchtap="btn_address_info"  style='width: {{210/homeTab.length}}%;' open-type='navigate'>
+        <image src='../../../images/tc/trainhome/normal/home_btn_addressbook_normal@3x.png' ></image>
+        <view  >通讯录</view>
+      </view>
+      <view  class='wrui_row_list_image_item image_grap' hover-class='hover_class' catchtap="btn_forum_info"  style='width: {{210/homeTab.length}}%;' open-type='navigate'>
+        <image src='../../../images/tc/trainhome/normal/home_btn_chat_normal@3x.png' ></image>
+        <view >论坛</view>
+      </view>
+    </view>
+    <view class='wrui-view_display_flex_row wrui_row_list_image_view' >
+      <view  class='wrui_row_list_image_item image_grap' hover-class='hover_class' catchtap="btn_textbook_info"  style='width: {{210/homeTab.length}}%;' open-type='navigate'>
+        <image src='../../../images/tc/trainhome/normal/home_btn_Teachingmaterials_normal@3x.png' ></image>
+        <view >教材</view>
+      </view>
+      <view  class='wrui_row_list_image_item image_grap' hover-class='hover_class' catchtap="btn_data_info"  style='width: {{210/homeTab.length}}%;' open-type='navigate'>
+        <image src='../../../images/tc/trainhome/normal/home_btn_date_normal@3x.png' ></image>
+        <view >资料</view>
+      </view>
+      <view  class='wrui_row_list_image_item image_grap' hover-class='hover_class' catchtap="btn_photo_info"  style='width: {{210/homeTab.length}}%;' open-type='navigate'>
+        <image src='../../../images/tc/trainhome/normal/home_btn_photo_normal@3x.png' ></image>
+        <view >相册</view>
+      </view>
+
+  </view>
+  <view class='wrui-view_display_flex_row wrui_row_list_image_view' style='margin-top:7%;'>
+    <view  class='wrui_row_list_image_item' catchtap="btn_couse_info" hover-class='hover_class'  style='width: {{210/homeTab.length}}%;' open-type='navigate'>
+        <image src='../../../images/tc/trainhome/home_btn_sign_normal@3x.png' ></image>
+        <view class='fontSize'>签到</view>
+    </view>
+    <view  class='wrui_row_list_image_item' catchtap="btn_assess_info" hover-class='hover_class'  style='width: {{210/homeTab.length}}%;' open-type='navigate'>
+        <image src='../../../images/tc/trainhome/home_btn_assessment_normal@3x.png' ></image>
+        <view class='fontSize'>评估</view>
+    </view>
+    <block wx:if = "{{userRoleCode != '04'}}">
+      <navigator  url='../notice/notice'  class='wrui_row_list_image_item '  style='width: {{210/homeTab.length}}%;' open-type='navigate'>
+        <image src='../../../images/tc/trainhome/home_btn_notice_normal@3x.png' ></image>
+        <view class='fontSize'>公告</view>
+      </navigator>
+    </block>
+  </view>
+
+ 
+</view>

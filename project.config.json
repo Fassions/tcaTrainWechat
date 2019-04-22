@@ -20,6 +20,8 @@
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -98,6 +100,12 @@
 					"id": -1,
 					"name": "4",
 					"pathName": "pages/trainingCourse/studentSignInfo/studentSignInfo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "t_h",
+					"pathName": "pages/trainingCourse/trainingHomePage/trainingHomePage",
 					"query": ""
 				},
 				{

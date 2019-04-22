@@ -135,16 +135,23 @@ Page({
         url: '../homepage/enroll/enroll?id=' + coursePro[index].class_id,
       })
     }else{
-      if (coursePro[index].userRoleCode == '04') {
-        wx.navigateTo({
-          url: 'studentSignInfo/studentSignInfo',
-        })
-      } else {
-        wx.navigateTo({
-          url: 'signIn/signIn',
-        })
-      }
+      wx.navigateTo({
+        url: 'trainingHomePage/trainingHomePage',
+      })
     }
+    
+    // else{
+    //   if (coursePro[index].userRoleCode == '04') {
+    //     wx.navigateTo({
+    //       url: 'trainingHomePage/trainingHomePage'
+    //     })
+    //   }
+      //  else {
+      //   wx.navigateTo({
+      //     url: 'signIn/signIn',
+      //   })
+      // }
+    // }
     
 
   },

@@ -37,16 +37,8 @@
     <image src='../../../images/tc/right.png' class='type_right_image'></image>
   </navigator>
 
-  <view style='height: 16rpx;'></view>
+  <view style='height: 150rpx;'></view>
 
-  <view class='wrui-view_display_flex_row wrui_row_list_image_view'>
-    <block wx:for="{{homeTab}}">
-      <navigator class='wrui_row_list_image_item' url='{{item.to}}' style='width: {{100/homeTab.length}}%;'>
-        <image src='{{item.image}}' style='{{item.style}}'></image>
-        <view>{{item.name}}</view>
-      </navigator>
-    </block>
-  </view>
 
 
   <block wx:if = "{{userRoleCode == '06'}}">

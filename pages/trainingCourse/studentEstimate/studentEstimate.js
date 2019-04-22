@@ -6,20 +6,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    esLib: {}
+    esLib: {},
+     ap: null,
+    dates: null,
+    isFocus: false,
+    inputIndex: -1,
+    inputIndex1: -1,
+    inputIndex2: -1,
+    inputIndex3: -1,
+    inputName1: '',
+    inputName2: '',
+    inputName3: '',
+    inputName4: '',
+    userRoleCode: '',
+    inputY: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var userRoleCode;
     wx.setNavigationBarTitle({
       title: app.globalData.trainName,
     })
     var trainId = options.trainId;
     if (trainId != "" && trainId != null) {
       app.globalData.trainId = trainId;
+      userRoleCode = options.userRoleCode;
       var uid = wx.getStorageSync('userId');
       if (uid != '' && uid != null) {
         app.globalData.userId = uid;
@@ -28,7 +42,12 @@ Page({
           url: '../../wxLogin/wxLogin',
         })
       }
+    }else {
+      userRoleCode = app.globalData.userRoleCode;
     }
+    this.setData({
+      userRoleCode: userRoleCode
+    })
   },
 
   /**

@@ -48,4 +48,10 @@
       <view>暂无评估</view>
     </view>
     </block>
+
+    <block wx:if = "{{userRoleCode == '06'}}">
+<view style='height: 100rpx;'></view>
+  <navigator class='bottom_view' url='../estimate/estimate'  open-type='redirect'>进入管理员端</navigator>
+  </block>
+
 </view>
