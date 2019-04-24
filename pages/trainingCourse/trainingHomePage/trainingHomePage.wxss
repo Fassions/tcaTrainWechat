@@ -45,6 +45,10 @@ page{
 .image_grap{
   background-color:hsla(200, 10%, 56%, 0.68);
 }
+.image_bottom{
+ padding-top: 30%;
+}
+
 /* .wrui_row_list_image_item :hover{                                                                                                                                                                        
 
 background-color:yellow;
