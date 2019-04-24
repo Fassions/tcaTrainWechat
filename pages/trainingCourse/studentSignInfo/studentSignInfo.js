@@ -36,14 +36,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var userRoleCode;
+    var userRoleCode = app.globalData.userRoleCode;
     var trainId = options.trainId;
-    var title = options.trainingName;
+    var title;
     if (trainId != '' && trainId != null) {
       app.globalData.trainId = trainId;
-      userRoleCode = options.userRoleCode
+      title = options.trainingName;
     } else {
-      userRoleCode = app.globalData.userRoleCode;
       title = app.globalData.trainName;
     }
     wx.setNavigationBarTitle({
