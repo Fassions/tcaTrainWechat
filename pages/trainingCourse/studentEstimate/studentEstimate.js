@@ -26,14 +26,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var userRoleCode;
-    wx.setNavigationBarTitle({
-      title: app.globalData.trainName,
-    })
     var trainId = options.trainId;
+    var title = options.trainingName;
     if (trainId != "" && trainId != null) {
       app.globalData.trainId = trainId;
-      userRoleCode = options.userRoleCode;
       var uid = wx.getStorageSync('userId');
       if (uid != '' && uid != null) {
         app.globalData.userId = uid;
@@ -44,9 +40,10 @@ Page({
       }
     }else {
       userRoleCode = app.globalData.userRoleCode;
+      title = app.globalData.trainName
     }
-    this.setData({
-      userRoleCode: userRoleCode
+    wx.setNavigationBarTitle({
+      title: title
     })
   },
 

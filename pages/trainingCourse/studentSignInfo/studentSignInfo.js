@@ -38,14 +38,16 @@ Page({
   onLoad: function(options) {
     var userRoleCode;
     var trainId = options.trainId;
+    var title = options.trainingName;
     if (trainId != '' && trainId != null) {
       app.globalData.trainId = trainId;
       userRoleCode = options.userRoleCode
     } else {
       userRoleCode = app.globalData.userRoleCode;
+      title = app.globalData.trainName;
     }
     wx.setNavigationBarTitle({
-      title: app.globalData.trainName,
+      title: title,
     })
     this.setData({
       userRoleCode: userRoleCode
