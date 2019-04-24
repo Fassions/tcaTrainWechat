@@ -28,9 +28,11 @@ Page({
   onLoad: function (options) {
     var userRoleCode = app.globalData.userRoleCode;
     var trainId = options.trainId;
+    var isFromMessage = false;
     var title;
     if (trainId != "" && trainId != null) {
       app.globalData.trainId = trainId;
+      isFromMessage = true;
       title = options.trainingName;
       var uid = wx.getStorageSync('userId');
       if (uid != '' && uid != null) {
@@ -46,6 +48,9 @@ Page({
     wx.setNavigationBarTitle({
       title: title
     })
+    this.setData({
+      isFromMessage: isFromMessage,
+    })
   },
 
   /**
@@ -53,6 +58,17 @@ Page({
    */
   onReady: function () {
 
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    if (this.data.isFromMessage) {
+      wx.reLaunch({
+        url: '../../homepage/homepage',
+      })
+    }
   },
 
   /**

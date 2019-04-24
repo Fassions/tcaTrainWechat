@@ -38,10 +38,12 @@ Page({
   onLoad: function(options) {
     var userRoleCode = app.globalData.userRoleCode;
     var trainId = options.trainId;
+    var isFromMessage = false;
     var title;
     if (trainId != '' && trainId != null) {
       app.globalData.trainId = trainId;
       title = options.trainingName;
+      isFromMessage = true;
     } else {
       title = app.globalData.trainName;
     }
@@ -49,6 +51,7 @@ Page({
       title: title,
     })
     this.setData({
+      isFromMessage: isFromMessage,
       userRoleCode: userRoleCode
     })
   },
@@ -79,14 +82,18 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-
+    if (this.data.isFromMessage) {
+      wx.reLaunch({
+        url: '../../homepage/homepage',
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-
+    
   },
 
   /**
@@ -103,12 +110,6 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  },
   getNowFormatDate: function() { //获取当前时间
     var date = new Date();
     var seperator1 = "/";
