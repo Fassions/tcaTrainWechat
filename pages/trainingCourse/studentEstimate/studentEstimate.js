@@ -45,11 +45,11 @@ Page({
     }else {
       title = app.globalData.trainName
     }
-    wx.setNavigationBarTitle({
-      title: title
-    })
     this.setData({
       isFromMessage: isFromMessage,
+    })
+    wx.setNavigationBarTitle({
+      title: title
     })
   },
 

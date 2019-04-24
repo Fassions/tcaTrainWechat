@@ -47,12 +47,12 @@ Page({
     } else {
       title = app.globalData.trainName;
     }
-    wx.setNavigationBarTitle({
-      title: title,
-    })
     this.setData({
       isFromMessage: isFromMessage,
       userRoleCode: userRoleCode
+    })
+    wx.setNavigationBarTitle({
+      title: title,
     })
   },
 
