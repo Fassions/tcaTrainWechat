@@ -15,8 +15,8 @@
       <view class='wrui-view_display_flex_row item_view'>
         <view class='wrui-view_flex_1 name'>签到率 {{personInfo.signRate ? personInfo.signRate * 100 : 0}}%</view>
         <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">        
-          <view style='{{personInfo.signRate * 100 > 50 ? "color: #50acfb" : ""}}'>{{personInfo.signRate * 100 > 50 ? '已完成' : '未完成'}}</view>
-          <image src='{{personInfo.signRate * 100 > 50 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
+          <view style='{{personInfo.signRate * 100 > 90 ? "color: #50acfb" : ""}}'>{{personInfo.signRate * 100 > 90 ? '已完成' : '未完成'}}</view>
+          <image src='{{personInfo.signRate * 100 > 90 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
         </view>
       </view>
     </block>  
@@ -73,7 +73,7 @@
         <view class='wrui-view_flex_1 name'>培训班签到率 {{personInfo.signRateOfTrain ? personInfo.signRateOfTrain * 100 : 0}}%</view>
         <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">     
 
-          <view style='{{personInfo.signRateOfTrain * 100 > 50 ? "color: #50acfb" : ""}}'>{{personInfo.signRateOfTrain * 100 > 50 ? '已完成' : '未完成'}}</view>
+          <view style='{{personInfo.signRateOfTrain * 100 > 50 ? "color: #50acfb" : ""}}'>{{personInfo.signRateOfTrain * 100 > 90 ? '已完成' : '未完成'}}</view>
           <image src='{{personInfo.signRateOfTrain * 100 > 50 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
         </view>
       </view>
@@ -81,8 +81,8 @@
 <block wx:if = "{{personInfo.assessRate != -1}}">
     <view class='wrui-view_display_flex_row item_view'>
         <view class='wrui-view_flex_1 name'>整体满意评估率 {{personInfo.assessRate ? personInfo.assessRate * 100 : 0}}%</view>
-        <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">         <view style='{{personInfo.assessRate * 100 >= 50 ? "color: #50acfb" : ""}}'>{{personInfo.assessRate * 100 >= 50 ? '已完成' : '未完成'}}</view>
-          <image src='{{personInfo.assessRate * 100 >= 50 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
+        <view class='wrui-view_display_flex_row q_view' catchtap='btn_select_d' data-index="{{index}}">         <view style='{{personInfo.assessRate * 100 >= 90 ? "color: #50acfb" : ""}}'>{{personInfo.assessRate * 100 >= 90 ? '已完成' : '未完成'}}</view>
+          <image src='{{personInfo.assessRate * 100 >= 90 ? "../../../images/tc/y_w.png" : "../../../images/tc/not_w.png"}}'></image>
         </view>
       </view>
   </block>
