@@ -53,5 +53,8 @@
 <view style='height: 100rpx;'></view>
   <navigator class='bottom_view' url='../estimate/estimate'  open-type='redirect'>进入管理员端</navigator>
   </block>
-
+<block wx:if = "{{isFromMessage}}">
+<view style='height: 100rpx;'></view>
+  <navigator class='bottom_view' url='../../homepage/homepage' open-type='reLaunch'>回到首页</navigator>
+  </block>
 </view>

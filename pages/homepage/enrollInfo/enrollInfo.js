@@ -69,7 +69,7 @@ Page({
 
         setTimeout(function(){
           wx.redirectTo({
-            url: '../../trainingCourse/studentSignInfo/studentSignInfo',
+            url: '../../trainingCourse/trainingHomePage/trainingHomePage',
           })
         },2000)
       } else {
