@@ -12,7 +12,7 @@
   <view style='height: 104rpx;'></view>
 
   <view class='wrui_view'>
-    <block wx:for="{{coursePro}}" wx:if = "{{item.class_checked == 0}}">
+    <block wx:for="{{coursePro}}" wx:if = "{{item.class_checked == 0||item.class_checked == 1}}">
       <view class='wrui-view_display_flex_row item_view' catchtap='btn_couse_info' data-index="{{index}}">
         <view class='wrui-view_display_flex_column left_view'>
           <view class='year'>{{item.year}}</view>

@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -91,10 +91,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 8,
 					"name": "1",
-					"pathName": "pages/homepage/enroll/enroll",
-					"query": ""
+					"pathName": "pages/trainingCourse/studentEstimate/studentEstimate",
+					"query": "trainId=8aff866c6a0c7355016a52765d6b2751&trainingName=321321",
+					"scene": null
 				},
 				{
 					"id": -1,
